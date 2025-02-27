@@ -1,9 +1,6 @@
-En este laboratorio se realizó un evento tipo coctel en una aula insonorizada, se instalaron varios micrófonos en distintos lugares para escuchar inicialmente el ruido ambiente 
+En este laboratorio se realizó un evento tipo coctel en una aula insonorizada, se instalaron varios micrófonos en distintos lugares para escuchar inicialmente el ruido ambiente, posterior se grabaron las voces de 2 sujetos para saber que era lo que estaban diciendo; una vez terminó la fiesta, se solicitó a los ingenieros que entregaran el audio de la voz de uno de los participantes.
 
-
-lo que las personas estaban hablando; una vez terminó la fiesta, se solicitó a los
-ingenieros que entregaran el audio de la voz de uno de los participantes.
-Los ingenieros analizaron las señales grabadas por los micrófonos eran mezclas
+posterior , se analizaron las voces grabadas por los microfonos que eran mezclas
 de señales que provenían de diferentes fuentes (personas) para todos los casos
 y se encontraron con el problema de aislar la voz de interés.
 El problema de la "fiesta de cóctel" se refiere a la capacidad de un sistema para
@@ -12,9 +9,7 @@ con múltiples emisores de sonido. Este problema es común en sistemas de
 audición tanto humanos como artificiales, y su resolución es esencial en
 aplicaciones como la mejora de la voz, el reconocimiento de habla y la
 cancelación de ruido.
-Para este laboratorio, los estudiantes recrearán el problema de la fiesta de
-coctel, donde existen 𝑛 fuentes sonoras capturadas por un arreglo de 𝑛
-micrófonos de acuerdo con la siguiente metodología.
+Para este laboratorio,se recreó el problema de la fiesta de coctel, donde existen 2 fuentes sonoras capturadas por un arreglo de 3 micrófonos de acuerdo con la siguiente  metodología.
 
 
 
