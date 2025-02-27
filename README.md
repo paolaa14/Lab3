@@ -9,10 +9,18 @@ con múltiples emisores de sonido. Este problema es común en sistemas de
 audición tanto humanos como artificiales, y su resolución es esencial en
 aplicaciones como la mejora de la voz, el reconocimiento de habla y la
 cancelación de ruido.
-Para este laboratorio,se recreó el problema de la fiesta de coctel, donde existen 2 fuentes sonoras capturadas por un arreglo de 3 micrófonos de acuerdo con la siguiente  metodología.
+Para este laboratorio,se recreó el problema de la fiesta de coctel, donde existen 2 fuentes sonoras capturadas por un arreglo de 3 micrófonos de acuerdo con la siguiente metodología.
 
 
 
+
+1. Configuración del sistema:
+
+se conectaron los 3 micrófonos al sistema de adquisición de datos y se distribuyeron de una forma estratégica en la sala insonorizada. Los micrófonos estaban ubicados de manera que cada uno capturó diferentes combinaciones de las
+señales provenientes de las dos fuentes.
+
+
+1.1 se ubicaron dos personas en posiciones fijas dentro de la sala insonorizada. Es importante mencionar que estaban localizados a distancias diferentes y orientados en distintas direcciones para simular un entorno de "fiesta de cóctel".
 
 
 Labo3
