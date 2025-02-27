@@ -23,6 +23,23 @@ señales provenientes de las dos fuentes.
 1.1 se ubicaron dos personas en posiciones fijas dentro de la sala insonorizada. Es importante mencionar que estaban localizados a distancias diferentes y orientados en distintas direcciones para simular un entorno de "fiesta de cóctel".
 
 
+
+
+2. Captura de la señal:
+Se generó la señal mediante la voz de los dos sujetos de prueba; cada uno
+dijo  una frase diferente durante el tiempo de captura de la señal. Las
+Pagina 4 de 5
+El uso no autorizado de su contenido así como reproducción total o parcial por cualquier persona o entidad, estará en
+contra de los derechos de autor
+UNIVERSIDAD MILITAR NUEVA GRANADA
+Titulo de la Práctica de Laboratorio
+señales de los micrófonos deben ser registradas por el sistema de
+adquisición y guardas para ser analizadas.
+ Grabar el ruido de la sala con los 3 micrófonos y calcular el SNR de cada
+señal. Repetir la medición en caso de que el SNR de alguna de las señales
+no sea suficiente. Argumentar las razones.
+
+
 Labo3
 <img width="624" alt="Figure 2025-02-27 104452 (0)" src="https://github.com/user-attachments/assets/e9b496e1-66f1-47b2-8ee9-87f1b8b3cb6d" />
 
