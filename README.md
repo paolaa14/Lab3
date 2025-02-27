@@ -1,5 +1,20 @@
-# Lab3
-En este proyecto se realizan distintos cálculos en un determinado sistema, al cual se le hallará la señal resultante de la convolución implementando sumatorias, posterior se encontrará la representación gráfica y secuencial del sistema mencionado anteriormente, todo esto se hará a mano con el fin de fortalecer las bases para conocer la convolución, no obstante , simultaneamente se comparará el mismo sistema en phyton, con el fin de comparar las señales resultantes y representaciones gráficas.
+En este laboratorio se realizó un evento tipo coctel en una aula insonorizada, se instalaron varios micrófonos en distintos lugares para escuchar inicialmente el ruido ambiente 
+
+
+lo que las personas estaban hablando; una vez terminó la fiesta, se solicitó a los
+ingenieros que entregaran el audio de la voz de uno de los participantes.
+Los ingenieros analizaron las señales grabadas por los micrófonos eran mezclas
+de señales que provenían de diferentes fuentes (personas) para todos los casos
+y se encontraron con el problema de aislar la voz de interés.
+El problema de la "fiesta de cóctel" se refiere a la capacidad de un sistema para
+concentrarse en una sola fuente sonora mientras filtra las demás en un entorno
+con múltiples emisores de sonido. Este problema es común en sistemas de
+audición tanto humanos como artificiales, y su resolución es esencial en
+aplicaciones como la mejora de la voz, el reconocimiento de habla y la
+cancelación de ruido.
+Para este laboratorio, los estudiantes recrearán el problema de la fiesta de
+coctel, donde existen 𝑛 fuentes sonoras capturadas por un arreglo de 𝑛
+micrófonos de acuerdo con la siguiente metodología.
 
 
 
