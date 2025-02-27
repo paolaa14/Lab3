@@ -19,8 +19,7 @@ Para este laboratorio,se recreó el problema de la fiesta de coctel, donde exist
 se conectaron los 3 micrófonos al sistema de adquisición de datos y se distribuyeron de una forma estratégica en la sala insonorizada. Los micrófonos estaban ubicados de manera que cada uno capturó diferentes combinaciones de las
 señales provenientes de las dos fuentes.
 
-
-1.1 se ubicaron dos personas en posiciones fijas dentro de la sala insonorizada. Es importante mencionar que estaban localizados a distancias diferentes y orientados en distintas direcciones para simular un entorno de "fiesta de cóctel".
+1.1 se ubicaron dos personas en posiciones fijas dentro de la sala insonorizada. Es importante mencionar que estaban localizados a distancias diferentes y orientados en distintas direcciones para simular un entorno de "fiesta de cóctel".
 
 
 
