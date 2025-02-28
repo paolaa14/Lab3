@@ -59,10 +59,10 @@ Imagen 4;espectro de voz andrea filtrada;
 Imagen 5; voz andrea filtrada;
 <img width="608" alt="Figure 2025-02-27 201341 (7)" src="https://github.com/user-attachments/assets/7826d6f2-7dbb-454a-b6d4-f1afee2f8911" />
 
-imagen 6; voz paola separada
+imagen 6; espectro voz paola separada
 <img width="625" alt="Figure 2025-02-27 201341 (6)" src="https://github.com/user-attachments/assets/3e63f054-b406-4709-b55d-37a5822d7dd3" />
 
-Imagen 7;
+Imagen 7; Paola
 <img width="608" alt="Figure 2025-02-27 201341 (5)" src="https://github.com/user-attachments/assets/0fb7fcdc-3ad0-471f-a5cf-e8ae4b191057" />
 
 
