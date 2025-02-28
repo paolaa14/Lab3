@@ -74,11 +74,11 @@ Imagen 9; ruido separado
 <img width="614" alt="Figure 2025-02-27 201341 (3)" src="https://github.com/user-attachments/assets/55168d99-e83a-4ec0-99ba-6219cda7687e" />
 
 
-Imagen 10;
+Imagen 10; espectro voz andrea separado
 <img width="625" alt="Figure 2025-02-27 201341 (2)" src="https://github.com/user-attachments/assets/122691e9-ff2d-44b4-8760-93a76b0f2c41" />
 
 
-imagen 11;
+imagen 11; voz andrea separado
 <img width="617" alt="Figure 2025-02-27 201341 (1)" src="https://github.com/user-attachments/assets/91ba2eda-bd65-4977-9e17-84e02e79d9cb" />
 
 
