@@ -66,11 +66,11 @@ Imagen 7; voz paola separada
 <img width="608" alt="Figure 2025-02-27 201341 (5)" src="https://github.com/user-attachments/assets/0fb7fcdc-3ad0-471f-a5cf-e8ae4b191057" />
 
 
-Imagen 8; espectro ruido
+Imagen 8; espectro ruido separado
 <img width="625" alt="Figure 2025-02-27 201341 (4)" src="https://github.com/user-attachments/assets/d26c3507-1ff7-4afc-8126-3b29222e892f" />
 
 
-Imagen 9;
+Imagen 9; ruido separado
 <img width="614" alt="Figure 2025-02-27 201341 (3)" src="https://github.com/user-attachments/assets/55168d99-e83a-4ec0-99ba-6219cda7687e" />
 
 
