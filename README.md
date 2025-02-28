@@ -48,7 +48,7 @@ Imagen 1. organizacion microfonos;
 Imagen 2; espectro de voz paola filtrada;
 <img width="625" alt="Figure 2025-02-27 201341 (10)" src="https://github.com/user-attachments/assets/2ae8f0ec-8258-43d5-94d5-e2da7e5c949d" />
 
-Imagen 3;
+Imagen 3;voz paola filtrada;
 <img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
 
 
