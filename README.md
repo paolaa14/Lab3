@@ -82,7 +82,7 @@ imagen 11; voz andrea separado
 <img width="617" alt="Figure 2025-02-27 201341 (1)" src="https://github.com/user-attachments/assets/91ba2eda-bd65-4977-9e17-84e02e79d9cb" />
 
 
-imagen 12;
+imagen 12; señales voz y ruido en el dominio del tiempo
 <img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
 
 
