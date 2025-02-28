@@ -28,7 +28,7 @@ Es importante destacar, que como se evidencia en la imagen 1, los microfonos imp
 Es importante mencionar que la técnica de separación se llama análisis de componentes independientes (ICA), que basicamente recupera señales originales que surgen de una mezcla sin saber como se combinaron inicialmente, tal como se escucha en los audios, en el código en particular que desarrollamos se implementa ¨FastICA(n_components=3)¨ (significa que se requiere separar las tres señales), lo que se aplica a as tres señales (Voz Andrea, Ruido y Voz Paola) y para lograr sacar los commponentes independientes se utilizó la función fit_transform() (encuentra y extrae las fuentes independientes de la mezcla), es decir las voces y el ruido por aparte, las señales realizadas mediante la voz se evidenciarán en las imagenes 2,3 y 4.
 
 
-imagen 2; voz andrea separado
+Imagen 2; voz andrea separado
 <img width="617" alt="Figure 2025-02-27 201341 (1)" src="https://github.com/user-attachments/assets/91ba2eda-bd65-4977-9e17-84e02e79d9cb" />
 En esta gráfica es importante mencionar que, se  observa una señal con variaciones claras en amplitud, lo que indica la presencia de segmentos con mayor energía (palabras enfatizadas) y pausas naturales entre palabras, también observamos que la señal parece tener una buena relación señal/ruido (SNR), ya que las variaciones de amplitud son más significativas en comparación con el ruido de fondo y  asu vez, no se observan patrones repetitivos ni artefactos evidentes de interferencia, lo que sugiere una buena separación de la voz, resaltando que si después del filtrado el SNR es más de 20 dB la estracción fue buena y si es inferior a 10 dB la señal aún tiene ruido, pero esto lo veremos en el ítem 3, ya que ahora solo estamos observando la señal separada.
 
@@ -55,45 +55,86 @@ Es importante tener en cuenta que; si el SNR de las señales de voz es alto, la 
 
 
 
-3. en
-4. em
+3. Se realizó un análisis temporal y espectral de las señales capturadas por cada micrófono, identificando las características principales de cada fuente sonora. Utilizando la transformada de Fourier discreta (DFT) o la transformada rápida de Fourier (FFT), describiendo la información que se puede obtener con cada una de ellas.
 
+La Transformada Rápida de Fourier (FFT) es un método para convertir una señal del dominio del tiempo al dominio de la frecuencia y en el aspecto del código en términos generales permite visualizar el contenido espectral de las señales separadas y lo usamos para verificar que las señales separadas contienen las frecuencias correctas de la voz y que el ruido ha sido reducido, donde se usa ¨np.fft.fft()¨ para calcular la FFT y se grafican los resultados en escala logarítmica ¨(plt.semilogx())¨.
+
+En este lab, se usa un sistema que realiza un análisis en el dominio del tiempo y en el dominio de la frecuencia, lo que nos permitió comprender la calidad de la separación de las señales y la eficacia del filtrado que se aplicó. Las señales en el dominio del tiempo representan la variación del voltaje en función del tiempo. En las gráficas proporcionadas se pueden observar las señales de voz filtradas para  "Paola" y "Andrea".
+El análisis espectral permite visualizar la distribución de la energía de la señal en distintas frecuencias. Para ello, se ha utilizado la Transformada Rápida de Fourier (FFT), que convierte la señal en el dominio del tiempo al dominio de la frecuencia.
+
+
+
+Paola;
+Imagen 3;voz paola filtrada;
+<img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
+La señal de voz de Paola ha sido filtrada, mostrando una variación en el tiempo que representa la modulación natural del habla, también se observa un rango de amplitud entre aproximadamente -8 mV y 8 mV y la señal presenta una estructura característica del habla, con regiones de mayor y menor intensidad.
+
+
+imagen 6; espectro voz paola separada
+<img width="625" alt="Figure 2025-02-27 201341 (6)" src="https://github.com/user-attachments/assets/3e63f054-b406-4709-b55d-37a5822d7dd3" />
+Se identifica la presencia de componentes frecuenciales en el rango de voz humana (aproximadamente entre 100 Hz y 4 kHz) y se observa una reducción significativa en las frecuencias fuera de este rango, indicando que el filtrado ha sido efectivo, la representación utiliza escala logarítmica para facilitar la observación de detalles en un amplio espectro.
 
 
 
 Imagen 2; espectro de voz paola filtrada;
 <img width="625" alt="Figure 2025-02-27 201341 (10)" src="https://github.com/user-attachments/assets/2ae8f0ec-8258-43d5-94d5-e2da7e5c949d" />
+En esta gráfica se muestra una concentración de energía en un rango de frecuencias específico, lo cual es característico de una señal de voz bien definida.
 
-Imagen 3;voz paola filtrada;
-<img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
+
+
+
+Andrea;
+Imagen 5; voz andrea filtrada;
+<img width="608" alt="Figure 2025-02-27 201341 (7)" src="https://github.com/user-attachments/assets/7826d6f2-7dbb-454a-b6d4-f1afee2f8911" />
+La señal de voz filtrada de Andrea muestra variaciones similares a la de Paola, con amplitudes comparables, se nota la presencia de pausas y momentos de mayor energía, característicos del habla natural.
+
+
+Imagen 10; espectro voz andrea separado
+<img width="625" alt="Figure 2025-02-27 201341 (2)" src="https://github.com/user-attachments/assets/122691e9-ff2d-44b4-8760-93a76b0f2c41" />
+La señal procesada mantiene las componentes dominantes dentro del rango del habla y se observa una disminución en las frecuencias más altas y bajas, indicando que el filtrado ha eliminado ruido externo.
+
 
 
 Imagen 4;espectro de voz andrea filtrada;
 <img width="625" alt="Figure 2025-02-27 201341 (8)" src="https://github.com/user-attachments/assets/9f4443cf-b787-4bf2-b72d-5ab6f1bae626" />
 
 
-Imagen 5; voz andrea filtrada;
-<img width="608" alt="Figure 2025-02-27 201341 (7)" src="https://github.com/user-attachments/assets/7826d6f2-7dbb-454a-b6d4-f1afee2f8911" />
 
-imagen 6; espectro voz paola separada
-<img width="625" alt="Figure 2025-02-27 201341 (6)" src="https://github.com/user-attachments/assets/3e63f054-b406-4709-b55d-37a5822d7dd3" />
-
+Ruido;
 Imagen 8; espectro ruido separado
 <img width="625" alt="Figure 2025-02-27 201341 (4)" src="https://github.com/user-attachments/assets/d26c3507-1ff7-4afc-8126-3b29222e892f" />
+Se observa que el ruido tiene un pico de magnitud en frecuencias bajas y medias, lo que sugiere la presencia de ruido ambiental o de fondo, la eliminación de este ruido mejora significativamente la inteligibilidad de la señal de voz.
 
 
 
-Imagen 10; espectro voz andrea separado
-<img width="625" alt="Figure 2025-02-27 201341 (2)" src="https://github.com/user-attachments/assets/122691e9-ff2d-44b4-8760-93a76b0f2c41" />
+El SNR, se usa para medir como se encuentra la señal o mas bien la calidad de esta, teniendo en cuenta que se analiza antes y despúes del filtrado, en la imagen a continuación se observan los valores;
+
+SNR;
+Imagen 13; SNR antes y después del filtrado
+<img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
+Teniendo en cuenta esto, la voz de andrea pasó de 22.97 dB , a 40.58 dB, lo que indica una mejora significativa  de las claridad de la señal, y la voz de paola pasó de 23.08 dB a 40.67dB, lo que evidencia una mejoría muy alta.
+
+3.1. los métodos de separación de fuentes son;
+
+- El Análisis de Componentes Independientes (ICA);
+- El Beamforming; 
+
+
+
+
+
+4. em
+
+
+
+
+
+
+
 
 
 imagen 12; señales voz y ruido en el dominio del tiempo
 <img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
-
-
-Imagen 13; SNR antes y después del filtrado
-<img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
-
 
 
 
