@@ -134,31 +134,62 @@ Para conluir la parte del SNR, antes de realizar el  filtrado, el SNR estaba en 
 - Redes neuronales profundas (DNN) ; aprende patrones de separacion pero a partir de grandes volumenes de datos, es decir cuando se mejora el audio en las llamadas de voz o videoconferencias o separar fuentes en grabaciones musicales.
 
 
-4. em
+4.  En esta parte se evaluan  los resultados comparando la señal aislada con la señal original utilizado
+métricas de calidad como la relación señal/ruido para cuantificar el desempeño de la separación. 
+Es neceario mencionar que la voz de interes fue la paola, por ende ;
 
-
+En la imagen 13, se observa la señal de voz de Paola junto con las señales de Andrea y el ruido en el dominio del tiempo. Se aprecia una superposición entre las señales, lo que sugiere que la separación de fuentes es necesaria para extraer la señal de interés.
 imagen 13; señales voz y ruido en el dominio del tiempo
 <img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
 
+En la imagen 14, donde se muestra la señal de voz de Paola separada, se observa una reducción significativa de la interferencia de la voz de Andrea y del ruido. Esto indica que el proceso de separación ha sido exitoso.
+Imagen 14; voz paola separada
+<img width="608" alt="Figure 2025-02-27 201341 (5)" src="https://github.com/user-attachments/assets/0fb7fcdc-3ad0-471f-a5cf-e8ae4b191057" />
 
+Al comparar con la imagen 15, que muestra la voz de Paola después del filtrado, se aprecia que la señal conserva su estructura temporal, pero con una posible mejora en la claridad debido a la reducción del ruido residual.
+Imagen 15;voz paola filtrada;
+<img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />+
 
+Las imágenes 16 y 17 muestran el espectro de la señal de voz de Paola separada y filtrada. Se puede notar que la señal de interés (paola) mantiene componentes de frecuencia en un rango coherente con una voz humana (~300 Hz - 3.4 kHz).
+imagen 16; espectro voz paola separada
+<img width="625" alt="Figure 2025-02-27 201341 (6)" src="https://github.com/user-attachments/assets/3e63f054-b406-4709-b55d-37a5822d7dd3" />
+Imagen 17; espectro de voz paola filtrada;
+<img width="625" alt="Figure 2025-02-27 201341 (10)" src="https://github.com/user-attachments/assets/2ae8f0ec-8258-43d5-94d5-e2da7e5c949d" />
 
+La reducción de componentes de ruido fuera de este rango sugiere que el filtrado ha sido efectivo. En particular, la disminución de energía en frecuencias más altas o bajas indica que los métodos aplicados lograron aislar la voz sin distorsionar demasiado el contenido espectral.
 
-
-
-
-
+Retomando SNR;
+Imagen 18; SNR antes y después del filtrado
+<img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
+Dado que el SNR de la voz de Paola mejoró significativamente (de 23.88 dB a 40.67 dB), esto indica que la calidad de la señal aumentó notablemente tras la separación y el filtrado, este incremento sugiere que el método aplicado logró una limpieza efectiva de la señal, eliminando la mayoría del ruido y mejorando la inteligibilidad de la voz de Paola.
 
 
 
 5. Preguntas finales refuerzo de aprendizaje;
 
 Con esta práctica se espera que como estudiantes logreemos reproducir  por separado el audio de cada una de las voces capturadas a partir de la obtención de dos señales con dos voces mezcladas.
-     5.1 .Los estudiantes serán capaces de responder las siguientes preguntas:
-      5.2. ¿Cómo afecta la posición relativa de los micrófonos y las fuentes sonoras en la
+5.2. ¿Cómo afecta la posición relativa de los micrófonos y las fuentes sonoras en la
             efectividad de la separación de señales?
-          5.3. ¿Qué mejoras implementaría en la metodología para obtener mejores
+
+
+- La posición relativa de los micrófonos y las fuentes sonoras es un factor clave en la efectividad de la separación de señales. Afecta directamente la capacidad de separación para distinguir y aislar cada voz. 
+Entonces, si la fuente está demasiado cerca de un micrófono y lejos de otro, la señal captada tendrá una diferencia de amplitud considerable, lo que puede ser útil para separar señales basadas en la intensidad, sin embargo, si la distancia es demasiado grande, la señal puede degradarse debido a la atenuación del sonido en el aire, afectando la claridad y precisión de la separación.
+
+También, si los micrófonos están cerca de superficies reflectantes, las reflexiones pueden interferir con las señales directas, generando ecos y dificultando la separación de las voces como se realizó en este laboratorio. 
+
+Asimismo, un solo micrófono tiene menos información espacial y depende más de técnicas de filtrado espectral.
+
+ 5.3. ¿Qué mejoras implementaría en la metodología para obtener mejores
                 resultados?
+
+
+- Asegurar que los micrófonos estén equidistantes de las fuentes para minimizar problemas en la captura de voces, esto lo podriamos mejorar tomando una medida más exacta, de esta forma se podría controlar más este factor.
+- Medir la respuesta de los micrófonos en la sala para compensar efectos de reflexiones.
+- optimizar la disposición de los micrófonos, usar algoritmos más avanzados de separación y mejorar la reducción de ruido para obtener mejores resultados en términos de claridad y calidad de la voz separada.
+
+
+
+
 
 
 
