@@ -30,49 +30,30 @@ Es importante mencionar que la técnica de separación se llama análisis de com
 
 imagen 2; voz andrea separado
 <img width="617" alt="Figure 2025-02-27 201341 (1)" src="https://github.com/user-attachments/assets/91ba2eda-bd65-4977-9e17-84e02e79d9cb" />
+En esta gráfica es importante mencionar que, se  observa una señal con variaciones claras en amplitud, lo que indica la presencia de segmentos con mayor energía (palabras enfatizadas) y pausas naturales entre palabras, también observamos que la señal parece tener una buena relación señal/ruido (SNR), ya que las variaciones de amplitud son más significativas en comparación con el ruido de fondo y  asu vez, no se observan patrones repetitivos ni artefactos evidentes de interferencia, lo que sugiere una buena separación de la voz, resaltando que si después del filtrado el SNR es más de 20 dB la estracción fue buena y si es inferior a 10 dB la señal aún tiene ruido, pero esto lo veremos en el ítem 3, ya que ahora solo estamos observando la señal separada.
 
-
-Se observa una señal con variaciones claras en amplitud, lo que indica la presencia de segmentos con mayor energía (palabras enfatizadas) y pausas naturales entre palabras.
-La señal parece tener una buena relación señal/ruido (SNR), ya que las variaciones de amplitud son más significativas en comparación con el ruido de fondo.
-No se observan patrones repetitivos ni artefactos evidentes de interferencia, lo que sugiere una buena separación de la voz.
-En esta gráfica es importante mencionar que, 
 
 Imagen 3; voz paola separada
 <img width="608" alt="Figure 2025-02-27 201341 (5)" src="https://github.com/user-attachments/assets/0fb7fcdc-3ad0-471f-a5cf-e8ae4b191057" />
+En esta gráfica es importante mencionar que, la forma de onda tiene características similares a la de Andrea, pero con diferencias en el patrón de amplitud y en la duración de los segmentos hablados, observamos que la señal ha sido correctamente aislada, ya que no se observan rastros significativos de la voz de Andrea ni del ruido ambiental, de la misma manera hay partes de menor amplitud, lo que podría deberse a una diferencia en la intensidad de la voz del hablante o a la posición relativa del micrófono.
 
-
-La forma de onda tiene características similares a la de Andrea, pero con diferencias en el patrón de amplitud y en la duración de los segmentos hablados.
-Se evidencia que la señal ha sido correctamente aislada, ya que no se observan rastros significativos de la voz de Andrea ni del ruido ambiental.
-Hay partes de menor amplitud, lo que podría deberse a una diferencia en la intensidad de la voz del hablante o a la posición relativa del micrófono.
-En esta gráfica es importante mencionar que 
 
 Imagen 4; ruido separado
 <img width="614" alt="Figure 2025-02-27 201341 (3)" src="https://github.com/user-attachments/assets/55168d99-e83a-4ec0-99ba-6219cda7687e" />
-En esta gráfica es importante mencionar que 
-El ruido separado muestra una señal más uniforme, sin grandes variaciones de amplitud como en las señales de voz.
-Se pueden notar picos en ciertos momentos, lo que podría deberse a sonidos externos como movimientos de objetos o ecos en la sala.
+En esta gráfica es importante mencionar que, el ruido separado muestra una señal más uniforme, sin grandes variaciones de amplitud como en las señales de voz, también se pueden notar picos en ciertos momentos, lo que podría deberse a sonidos externos como movimientos de objetos o ecos en la sala.
 La energía del ruido parece distribuida a lo largo de toda la señal sin pausas marcadas, lo cual es característico de un ruido de fondo constante.
 
 
 
 Para continuar, se implementa un  filtro Butterworth pasa banda (se implementa este filtro porque despues de separarla con la técnica mencioanda la señal puede tener frecuencias no deseadas) para mejorar la calidad de las señales de voz y se definieron frecuencias de corte entre los 300 Hz Y 3400 Hz (que es el rango de frecuencias de la voz humana), que quiere decir que permitirá eliminar el ruido fuera del espectro típico del habla de nuestras voces, respecto al código se implementa  ¨butter_bandpass()¨, con frecuencia de corte baja ; 300 Hz y la frecuencia de corte alta 3.400 Hz y se aplica con apply_filter() usando scipy.signal.filtfilt(), que evita distorsiones en la señal filtrada, es necesario mencionar que este filtrado permitirá mejorar la calidad de la voz al eliminar el ruido de baja y alta frecuencia, por lo que el SNR que se obtendrá será mucho mejor después de la separación.
 
-Poaterior, Si el SNR de las señales de voz es alto, la separación fue exitosa y las grabaciones son aptas para su análisis.
-Si el SNR es bajo, pueden existir problemas como:
-Captura deficiente debido a la mala posición de los micrófonos.
-Excesivo ruido de fondo, que puede requerir filtrado adicional.
-Errores en la segmentación de las fuentes, lo que llevaría a que las voces no se separen correctamente.
+Posterior,  se utiliza la Transformada Rápida de Fourier para visualizar el espectro de las señales separadas y filtradas verificando si las señales están correctamente aisladas y si el ruido ha sido reducido, asimismo, el código calcula el SNR de cada señal  antes y después de la separación, para medir la mejora en la calidad de la extracción de voz, esto se realiza con la función ¨calculate_snr()¨ que compara la  energía de la señal con la del ruido para determinar la efectividad del proceso de separación.
 
-El cálculo de la Relación Señal-Ruido (SNR) es crucial para determinar la calidad de la captura. El procedimiento seguido fue:
 
-Grabación del ruido de la sala con los tres micrófonos en ausencia de voz para tener una referencia del ruido de fondo.
-Comparación de la energía de la señal de voz con la energía del ruido para calcular el SNR de cada grabación:
+Es importante tener en cuenta que; si el SNR de las señales de voz es alto, la separación fue exitosa y las grabaciones son aptas para el análisis, mientras que si el SNR es bajo, pueden existir problemas relacionados a la mala posición de los microfonos que generaría una mala captura, o un error en la segmentación de las fuentes  que llevaría a que las voces no se separen correctamente.
 
-Si el SNR de las señales de voz es alto, la separación fue exitosa y las grabaciones son aptas para su análisis.
-Si el SNR es bajo, pueden existir problemas como:
-Captura deficiente debido a la mala posición de los micrófonos.
-Excesivo ruido de fondo, que puede requerir filtrado adicional.
-Errores en la segmentación de las fuentes, lo que llevaría a que las voces no se separen correctamente.
+
+
 
 3. en
 4. em
