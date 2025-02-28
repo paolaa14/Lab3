@@ -52,7 +52,7 @@ Imagen 3;voz paola filtrada;
 <img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
 
 
-Imagen 4;
+Imagen 4;espectro de voz andrea filtrada;
 <img width="625" alt="Figure 2025-02-27 201341 (8)" src="https://github.com/user-attachments/assets/9f4443cf-b787-4bf2-b72d-5ab6f1bae626" />
 
 
