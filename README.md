@@ -65,7 +65,7 @@ El análisis espectral permite visualizar la distribución de la energía de la 
 
 
 Paola;
-Imagen 3;voz paola filtrada;
+Imagen 5;voz paola filtrada;
 <img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
 La señal de voz de Paola ha sido filtrada, mostrando una variación en el tiempo que representa la modulación natural del habla, también se observa un rango de amplitud entre aproximadamente -8 mV y 8 mV y la señal presenta una estructura característica del habla, con regiones de mayor y menor intensidad.
 
@@ -76,7 +76,7 @@ Se identifica la presencia de componentes frecuenciales en el rango de voz human
 
 
 
-Imagen 2; espectro de voz paola filtrada;
+Imagen 7; espectro de voz paola filtrada;
 <img width="625" alt="Figure 2025-02-27 201341 (10)" src="https://github.com/user-attachments/assets/2ae8f0ec-8258-43d5-94d5-e2da7e5c949d" />
 En esta gráfica se muestra una concentración de energía en un rango de frecuencias específico, lo cual es característico de una señal de voz bien definida.
 
@@ -84,18 +84,18 @@ En esta gráfica se muestra una concentración de energía en un rango de frecue
 
 
 Andrea;
-Imagen 5; voz andrea filtrada;
+Imagen 8; voz andrea filtrada;
 <img width="608" alt="Figure 2025-02-27 201341 (7)" src="https://github.com/user-attachments/assets/7826d6f2-7dbb-454a-b6d4-f1afee2f8911" />
 La señal de voz filtrada de Andrea muestra variaciones similares a la de Paola, con amplitudes comparables, se nota la presencia de pausas y momentos de mayor energía, característicos del habla natural.
 
 
-Imagen 10; espectro voz andrea separado
+Imagen 9; espectro voz andrea separado
 <img width="625" alt="Figure 2025-02-27 201341 (2)" src="https://github.com/user-attachments/assets/122691e9-ff2d-44b4-8760-93a76b0f2c41" />
 La señal procesada mantiene las componentes dominantes dentro del rango del habla y se observa una disminución en las frecuencias más altas y bajas, indicando que el filtrado ha eliminado ruido externo.
 
 
 
-Imagen 4;espectro de voz andrea filtrada;
+Imagen 10;espectro de voz andrea filtrada;
 <img width="625" alt="Figure 2025-02-27 201341 (8)" src="https://github.com/user-attachments/assets/9f4443cf-b787-4bf2-b72d-5ab6f1bae626" />
 En esta gráfica se un observa una concentración de energía en un rango de frecuencias específico, similar a la voz filtrada de paola, sin embargo la de andrea posee picos de magnitud que indican las principales frecuencias componentes de la señal vocal.
 
@@ -103,7 +103,7 @@ En esta gráfica se un observa una concentración de energía en un rango de fre
 
 
 Ruido;
-Imagen 8; espectro ruido separado
+Imagen 11; espectro ruido separado
 <img width="625" alt="Figure 2025-02-27 201341 (4)" src="https://github.com/user-attachments/assets/d26c3507-1ff7-4afc-8126-3b29222e892f" />
 Se observa que el ruido tiene un pico de magnitud en frecuencias bajas y medias, lo que sugiere la presencia de ruido ambiental o de fondo, la eliminación de este ruido mejora significativamente la inteligibilidad de la señal de voz.
 
@@ -116,7 +116,7 @@ SNR > 20 dB → Excelente calidad.
 En la imagen a continuación se observan los valores;
 
 SNR;
-Imagen 13; SNR antes y después del filtrado
+Imagen 12; SNR antes y después del filtrado
 <img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
 Teniendo en cuenta esto, la voz de andrea pasó de 22.97 dB , a 40.58 dB, lo que indica una mejora significativa  de las claridad de la señal, y la voz de paola pasó de 23.08 dB a 40.67dB, lo que evidencia una mejoría muy alta.
 
@@ -126,25 +126,26 @@ Para conluir la parte del SNR, antes de realizar el  filtrado, el SNR estaba en 
 
 3.1. los métodos de separación de fuentes son;
 
-- El Análisis de Componentes Independientes (ICA);
-- El Beamforming; 
-
-
-
+- El Análisis de Componentes Independientes (ICA);este separa las señales mezcladas pero asumiento que las fuentes son independientes, este usualmente se usa para recuperar voces separadas cuando se habla al mismo tiempo.
+- El Análisis de Componentes principales (PCA); este reduce la dimensionalidad de las señales, pero manteniendo máxima varianza, es decir, se implementa en ambitos como eliminar ruido en señales acústicas y mejora la señal en entorno que sea muy ruidoso, por ejemplo si se tienen microfonos, este permite identificar las direcciones dominantes de las fuentes de sonido.
+- El Beamforming; en este se implementan microfonos o arreglos de microfonos, para identificar las señales que vienen de una dirección especifica, como por ejemplo para captar la voz en conferencias o grabaciones, donde se mejora la voz del usuario y se reduce el ruido del fondo.
+- Filtrado adaptativo (LMS, RLS); este asjusta los coeficientes de un filtro digital para quitar las interferncias, como por ejemplo para quitar el eco de las llamadas de voz, o eleminar el ruido en señales cerebrales.
+- Transformada de fourier corto tiempo; esta separa las señales en el dominio del tiempo- frecuencia para lograr identificar y de la misma forma aislar los componentes, como por ejemplo, separar voz y música o eliminar ruido de señales de radar.
+- Redes neuronales profundas (DNN) ; aprende patrones de separacion pero a partir de grandes volumenes de datos, es decir cuando se mejora el audio en las llamadas de voz o videoconferencias o separar fuentes en grabaciones musicales.
 
 
 4. em
 
 
-
-
-
-
-
-
-
-imagen 12; señales voz y ruido en el dominio del tiempo
+imagen 13; señales voz y ruido en el dominio del tiempo
 <img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
+
+
+
+
+
+
+
 
 
 
