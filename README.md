@@ -39,6 +39,8 @@ señal. Repetir la medición en caso de que el SNR de alguna de las señales
 no sea suficiente. Argumentar las razones.
 
 
+![WhatsApp Image 2025-02-27 at 20 49 38](https://github.com/user-attachments/assets/e4d0c5e3-a3f4-42c0-b970-86eeedc8014b)
+
 
 <img width="625" alt="Figure 2025-02-27 201341 (10)" src="https://github.com/user-attachments/assets/2ae8f0ec-8258-43d5-94d5-e2da7e5c949d" />
 <img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
