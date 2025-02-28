@@ -38,21 +38,55 @@ adquisición y guardas para ser analizadas.
 señal. Repetir la medición en caso de que el SNR de alguna de las señales
 no sea suficiente. Argumentar las razones.
 
-
+Imagen 1. organizacion microfonos;
 ![WhatsApp Image 2025-02-27 at 20 49 38](https://github.com/user-attachments/assets/e4d0c5e3-a3f4-42c0-b970-86eeedc8014b)
 
 
+
+
+
+Imagen 2;
 <img width="625" alt="Figure 2025-02-27 201341 (10)" src="https://github.com/user-attachments/assets/2ae8f0ec-8258-43d5-94d5-e2da7e5c949d" />
+
+Imagen 3;
 <img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
+
+
+Imagen 4;
 <img width="625" alt="Figure 2025-02-27 201341 (8)" src="https://github.com/user-attachments/assets/9f4443cf-b787-4bf2-b72d-5ab6f1bae626" />
+
+
+Imagen 5;
 <img width="608" alt="Figure 2025-02-27 201341 (7)" src="https://github.com/user-attachments/assets/7826d6f2-7dbb-454a-b6d4-f1afee2f8911" />
+
+imagen 6;
 <img width="625" alt="Figure 2025-02-27 201341 (6)" src="https://github.com/user-attachments/assets/3e63f054-b406-4709-b55d-37a5822d7dd3" />
+
+Imagen 7;
 <img width="608" alt="Figure 2025-02-27 201341 (5)" src="https://github.com/user-attachments/assets/0fb7fcdc-3ad0-471f-a5cf-e8ae4b191057" />
+
+
+Imagen 8;
 <img width="625" alt="Figure 2025-02-27 201341 (4)" src="https://github.com/user-attachments/assets/d26c3507-1ff7-4afc-8126-3b29222e892f" />
+
+
+Imagen 9;
 <img width="614" alt="Figure 2025-02-27 201341 (3)" src="https://github.com/user-attachments/assets/55168d99-e83a-4ec0-99ba-6219cda7687e" />
+
+
+Imagen 10;
 <img width="625" alt="Figure 2025-02-27 201341 (2)" src="https://github.com/user-attachments/assets/122691e9-ff2d-44b4-8760-93a76b0f2c41" />
+
+
+imagen 11;
 <img width="617" alt="Figure 2025-02-27 201341 (1)" src="https://github.com/user-attachments/assets/91ba2eda-bd65-4977-9e17-84e02e79d9cb" />
+
+
+imagen 12;
 <img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
+
+
+Imagen 13;
 <img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
 
 
