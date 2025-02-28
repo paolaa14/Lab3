@@ -86,7 +86,7 @@ imagen 12; señales voz y ruido en el dominio del tiempo
 <img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
 
 
-Imagen 13;
+Imagen 13; SNR antes y después del filtrado
 <img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
 
 
