@@ -97,6 +97,8 @@ La señal procesada mantiene las componentes dominantes dentro del rango del hab
 
 Imagen 4;espectro de voz andrea filtrada;
 <img width="625" alt="Figure 2025-02-27 201341 (8)" src="https://github.com/user-attachments/assets/9f4443cf-b787-4bf2-b72d-5ab6f1bae626" />
+En esta gráfica se un observa una concentración de energía en un rango de frecuencias específico, similar a la voz filtrada de paola, sin embargo la de andrea posee picos de magnitud que indican las principales frecuencias componentes de la señal vocal.
+
 
 
 
@@ -106,13 +108,21 @@ Imagen 8; espectro ruido separado
 Se observa que el ruido tiene un pico de magnitud en frecuencias bajas y medias, lo que sugiere la presencia de ruido ambiental o de fondo, la eliminación de este ruido mejora significativamente la inteligibilidad de la señal de voz.
 
 
+El SNR se calcula  antes y después del filtrado con ¨calculate_snr()¨ Y  se usa para medir como se encuentra la señal o mas bien la calidad de esta, teniendo en cuenta que se analiza antes y despúes del filtrado,Se evalúan los resultados con el criterio:
+SNR < -10 dB → Mala calidad.
+SNR entre 10 y 20 dB → Aceptable.
+SNR > 20 dB → Excelente calidad.
 
-El SNR, se usa para medir como se encuentra la señal o mas bien la calidad de esta, teniendo en cuenta que se analiza antes y despúes del filtrado, en la imagen a continuación se observan los valores;
+En la imagen a continuación se observan los valores;
 
 SNR;
 Imagen 13; SNR antes y después del filtrado
 <img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
 Teniendo en cuenta esto, la voz de andrea pasó de 22.97 dB , a 40.58 dB, lo que indica una mejora significativa  de las claridad de la señal, y la voz de paola pasó de 23.08 dB a 40.67dB, lo que evidencia una mejoría muy alta.
+
+
+Para conluir la parte del SNR, antes de realizar el  filtrado, el SNR estaba en un rango aceptable (~23 dB), indicando que la señal tenía una calidad moderada, no obstante después del filtrado, el SNR aumentó a más de 40 dB, lo que indica una calidad excelente en la separación y limpieza de la señal, por lo que el método de separación de señales demuestra su efectividad en mejorar la señal capturada.
+
 
 3.1. los métodos de separación de fuentes son;
 
