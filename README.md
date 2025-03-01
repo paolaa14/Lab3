@@ -205,7 +205,6 @@ Antes de aplicar ICA, el código carga y normaliza las señales de entrada, de l
 fs2, ruido = wavfile.read('RuidoAmbiente.wav')
 fs3, voz_paola = wavfile.read('Voz%20Paola.wav')
 
-# Normalizar las señales
 voz_andrea = voz_andrea.astype(np.float32) / np.max(np.abs(voz_andrea))
 ruido = ruido.astype(np.float32) / np.max(np.abs(ruido))
 voz_paola = voz_paola.astype(np.float32) / np.max(np.abs(voz_paola))¨
