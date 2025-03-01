@@ -84,6 +84,7 @@ Se utiliza la Transformada Rápida de Fourier para visualizar el espectro de la
 Con esto claro, vamos a ver las señales separadas y su respectivo espectro; 
 
 señal ANDREA:
+
 Imagen 3; voz andrea separada:
 
 
@@ -104,6 +105,7 @@ La señal procesada mantiene las componentes dominantes dentro del rango del ha
 
 
 señal PAOLA:
+
 Imagen 5; voz paola separada:
 
 <img width="608" alt="Figure 2025-02-27 201341 (5)" src="https://github.com/user-attachments/assets/0fb7fcdc-3ad0-471f-a5cf-e8ae4b191057" />
@@ -123,6 +125,7 @@ Se identifica la presencia de componentes frecuenciales en el rango de voz human
 
 
 señal RUIDO AMBIENTE:
+
 Imagen 7; ruido separado:
 
 <img width="614" alt="Figure 2025-02-27 201341 (3)" src="https://github.com/user-attachments/assets/55168d99-e83a-4ec0-99ba-6219cda7687e" />
@@ -147,6 +150,7 @@ Se observa que el ruido tiene un pico de magnitud en frecuencias bajas y medias,
 
 
 señal PAOLA:
+
 Imagen 9. Voz paola filtrada;
 
 
@@ -169,6 +173,7 @@ En esta gráfica se muestra una concentración de energía en un rango de fre
 
 
 señal ANDREA:
+
 Imagen 11. voz andrea filtrada;
 
 
