@@ -76,4 +76,79 @@ Para conluir la parte del SNR, antes de realizar el  filtrado, el SNR estaba en 
 
 
 
+
+3.Para continuar, se utilizó  la técnica de separación ¨análisis de componentes independientes (ICA)¨, que basicamente recupera señales originales que surgen de una mezcla sin saber como se combinaron inicialmente, tal como se escucha en los audios, en el código en particular que desarrollamos se implementa ¨FastICA(n_components=3)¨ (significa que se requiere separar las tres señales), lo que se aplica a as tres señales (Voz Andrea, Ruido y Voz Paola) y para lograr sacar los commponentes independientes se utilizó la función fit_transform() (encuentra y extrae las fuentes independientes de la mezcla), es decir las voces y el ruido por aparte, las señales realizadas mediante la voz se evidenciarán en las imagenes 4,5 y 6.
+
+
+
+Imagen 4; voz andrea separada:
+
+
+<img width="617" alt="Figure 2025-02-27 201341 (1)" src="https://github.com/user-attachments/assets/91ba2eda-bd65-4977-9e17-84e02e79d9cb" />
+
+
+En esta gráfica es importante mencionar que, se  observa una señal con variaciones claras en amplitud, lo que indica la presencia de segmentos con mayor energía (palabras enfatizadas) y pausas naturales entre palabras, también observamos que la señal parece tener una buena relación señal/ruido (SNR), ya que las variaciones de amplitud son más significativas en comparación con el ruido de fondo y  asu vez, no se observan patrones repetitivos ni artefactos evidentes de interferencia, lo que sugiere una buena separación de la voz.
+
+
+Imagen 5; voz paola separada:
+
+<img width="608" alt="Figure 2025-02-27 201341 (5)" src="https://github.com/user-attachments/assets/0fb7fcdc-3ad0-471f-a5cf-e8ae4b191057" />
+
+
+En esta gráfica es importante mencionar que, la forma de onda tiene características similares a la de Andrea, pero con diferencias en el patrón de amplitud y en la duración de los segmentos hablados, observamos que la señal ha sido correctamente aislada, ya que no se observan rastros significativos de la voz de Andrea ni del ruido ambiental, de la misma manera hay partes de menor amplitud, lo que podría deberse a una diferencia en la intensidad de la voz del hablante o a la posición relativa del micrófono.
+
+
+
+Imagen 6; ruido separado:
+
+<img width="614" alt="Figure 2025-02-27 201341 (3)" src="https://github.com/user-attachments/assets/55168d99-e83a-4ec0-99ba-6219cda7687e" />
+
+
+En esta gráfica es importante mencionar que, el ruido separado muestra una señal más uniforme, sin grandes variaciones de amplitud como en las señales de voz, también se pueden notar picos en ciertos momentos, lo que podría deberse a sonidos externos como movimientos de objetos o ecos en la sala.
+La energía del ruido parece distribuida a lo largo de toda la señal sin pausas marcadas, lo cual es característico de un ruido de fondo constante.
+
+
+
+
+
+3.1. Seguido a esto se  realizó un análisis temporal y espectral de las señales capturadas por cada micrófono, identificando las características principales de cada fuente sonora. Utilizando la transformada de Fourier discreta (DFT) o la transformada rápida de Fourier (FFT), describiendo la información que se puede obtener con cada una de ellas.
+
+La Transformada Rápida de Fourier (FFT) es un método para convertir una señal del dominio del tiempo al dominio de la frecuencia y en el aspecto del código en términos generales permite visualizar el contenido espectral de las señales separadas y lo usamos para verificar que las señales separadas contienen las frecuencias correctas de la voz y que el ruido ha sido reducido, donde se usa ¨np.fft.fft()¨ para calcular la FFT y se grafican los resultados en escala logarítmica ¨(plt.semilogx())¨.
+
+En este lab, se usa un sistema que realiza un análisis en el dominio del tiempo y en el dominio de la frecuencia, lo que nos permitió comprender la calidad de la separación de las señales y la eficacia del filtrado que se aplicó. Las señales en el dominio del tiempo representan la variación del voltaje en función del tiempo. En las gráficas proporcionadas se pueden observar las señales de voz filtradas para  "Paola" y "Andrea".
+
+El análisis espectral permite visualizar la distribución de la energía de la señal en distintas frecuencias. Para ello, se ha utilizado la Transformada Rápida de Fourier (FFT), que convierte la señal en el dominio del tiempo al dominio de la frecuencia.
+
+Se utiliza la Transformada Rápida de Fourier para visualizar el espectro de las señales separadas y filtradas verificando si las señales están correctamente aisladas y si el ruido ha sido reducido, lo cual,  se evidnecia en las imagénes 7,8 y 9.
+
+
+
+
+imagen 7; espectro voz paola separada:
+
+<img width="625" alt="Figure 2025-02-27 201341 (6)" src="https://github.com/user-attachments/assets/3e63f054-b406-4709-b55d-37a5822d7dd3" />
+
+
+Se identifica la presencia de componentes frecuenciales en el rango de voz humana (aproximadamente entre 100 Hz y 4 kHz) y se observa una reducción significativa en las frecuencias fuera de este rango, indicando que el filtrado ha sido efectivo, la representación utiliza escala logarítmica para facilitar la observación de detalles en un amplio espectro.
+
+
+Imagen 8; espectro voz andrea separado:
+
+<img width="625" alt="Figure 2025-02-27 201341 (2)" src="https://github.com/user-attachments/assets/122691e9-ff2d-44b4-8760-93a76b0f2c41" />
+
+
+La señal procesada mantiene las componentes dominantes dentro del rango del habla y se observa una disminución en las frecuencias más altas y bajas, indicando que el filtrado ha eliminado ruido externo.
+
+
+Imagen 9; espectro ruido separado:
+
+<img width="625" alt="Figure 2025-02-27 201341 (4)" src="https://github.com/user-attachments/assets/d26c3507-1ff7-4afc-8126-3b29222e892f" />
+
+
+Se observa que el ruido tiene un pico de magnitud en frecuencias bajas y medias, lo que sugiere la presencia de ruido ambiental o de fondo, la eliminación de este ruido mejora significativamente la inteligibilidad de la señal de voz.
+
+
+
+
+
   
