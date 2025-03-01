@@ -274,6 +274,12 @@ Para recordar;el código para reLizar este segundo método, se encuentra en el a
 
 
 
+- POR ÚLTIMO, respecto a la voz de interes;
+
+Para reproducir la voz de Paola, primero se debe calcular el SNR para evaluar la calidad de la separación, como se hizo previamente. Luego, se elige entre compilar el código de labb333 (recomendado, ya que usa el método ICA) o el método 2 (PCA), según se prefiera. Tras compilar y ejecutar el código seleccionado, se obtendrá la señal de la voz de interes (PAOLA) separada, en la cual la voz de Paola, aunque no completamente nítida, se entiende bien. Finalmente, para reproducir el audio filtrado, se usa la función sd.play(voz_paola_filtrada, samplerate=fs1) seguida de sd.wait(), la cual, pertenece a la biblioteca sounddevice y se usa para reproducir audio en Python, donde voz_paola_filtrada: es un array NumPy o una lista que contiene los valores de la señal de audio separada (en este caso, la voz de Paola) y la parte de samplerate=fs1: define la frecuencia de muestreo (en Hz) con la que se reproducirá el audio, mientras que la línea sd.wait() se usa para pausar la ejecución del código hasta que la reproducción del audio haya finalizado. Esto es útil para evitar que el programa continúe ejecutándose antes de que el sonido termine de reproducirse.
+
+Todo esto, nos hace notar, que si se evalúan los dos métodos, en el caso del ICA  logra extraer la voz de Paola de manera que sigue siendo entendible, lo que demuestra su efectividad en la separación de señales.
+
 
 4. En esta parte se evaluan  los resultados comparando la señal aislada con la señal original utilizado
 métricas de calidad como la relación señal/ruido para cuantificar el desempeño de la separación. 
