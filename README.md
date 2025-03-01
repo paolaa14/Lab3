@@ -198,7 +198,8 @@ En esta gráfica se un observa una concentración de energía en un rango de 
 - Por otro lado, Con las librerias descargadas anteriormente, se procedió a calcular el SNR, el código calcula el SNR de cada señal  antes y después del filtrado  ,que se usa para medir como se encuentra la señal o mas bien la calidad de esta, este cálculo se va a explicar por partes para entenderlo y no tener la neesidad de abrir o cargar el código, sin embargo, en caso de así quererlo pueden descargar las librerias ya mencionadas y compilar el codigo para visualizarlo usted mismo/a; 
 
 
-**Explicación método ICA, parte del código;
+Explicación método ICA, parte del código;
+
 Antes de aplicar ICA, el código carga y normaliza las señales de entrada, de la siguiente manera:
 
 ¨fs1, voz_andrea = wavfile.read('Voz%20Andrea.wav')
