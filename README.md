@@ -202,18 +202,22 @@ En esta gráfica se un observa una concentración de energía en un rango de 
     return snr ¨
 
  y los resultados se evalúan con el criterio:
+ 
 -SNR < -10 dB → Mala calidad.
 -SNR entre 10 y 20 dB → Aceptable.
 -SNR > 20 dB → Excelente calidad.
 
 En la imagen a continuación se observan los valores obtenidos;
 
+
 Imagen 13; SNR antes y después del filtrado método (ICA)
 
 
 <img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
 
+La voz de andrea pasó de 22.97 dB , a 40.58 dB, lo que indica una mejora significativa  de las claridad de la señal, y la voz de paola pasó de 23.08 dB a 40.67dB, lo que evidencia una mejoría muy alta.
 
+  
 
 - Como ítem adicional, relizamos el cálculo de la misma manera que ya se mencionó pero por el método de  Análisis de Componentes principales (PCA), esto con el fin de comparar la calidad de separado por ambos métodos y definir cual resulta más óptimo,
 
@@ -224,10 +228,19 @@ Imagen 14; SNR antes y después del filtrado método (PCA);
 <img width="571" alt="Captura de pantalla 2025-03-01 a la(s) 11 58 24 a m" src="https://github.com/user-attachments/assets/419f2104-f557-41d8-9b86-90efa1d62b52" />
 
 
+- SNR antes del filtrado
+Voz Andrea: 22.97 dB
+Voz Paola: 23.08 dB
 
-Teniendo en cuenta esto, la voz de andrea pasó de 22.97 dB , a 40.58 dB, lo que indica una mejora significativa  de las claridad de la señal, y la voz de paola pasó de 23.08 dB a 40.67dB, lo que evidencia una mejoría muy alta.
+- SNR después del filtrado
+Voz Andrea: 21.61 dB
+Voz Paola: 21.88 dB
 
-Para conluir la parte del SNR, antes de realizar el  filtrado, el SNR estaba en un rango aceptable (~23 dB), indicando que la señal tenía una calidad moderada, no obstante después del filtrado, el SNR aumentó a más de 40 dB, lo que indica una calidad excelente en la separación y limpieza de la señal, por lo que el método de separación de señales demuestra su efectividad en mejorar la señal capturada.
+
+Teniendo en cuenta esto, con el método ICA, el SNR mejora significativamente, pasando de valores alrededor de 23 dB a más de 40 dB, lo que indica una excelente calidad de separación.
+Con el método PCA, el SNR disminuye ligeramente después del filtrado, quedando cerca de 21 dB, lo que es apenas aceptable y sugiere que el filtrado no tuvo un impacto positivo.
+
+Para conluir la parte del SNR, antes de realizar el  filtrado, el SNR por el método (ICA) estaba en un rango aceptable (~23 dB), indicando que la señal tenía una calidad moderada, no obstante después del filtrado, el SNR aumentó a más de 40 dB, lo que indica una calidad excelente en la separación y limpieza de la señal, por lo que el método de separación de señales demuestra su efectividad en mejorar la señal capturada.
 
 
 
