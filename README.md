@@ -248,13 +248,15 @@ Imagen 14; SNR antes y después del filtrado método (PCA);
 <img width="571" alt="Captura de pantalla 2025-03-01 a la(s) 11 58 24 a m" src="https://github.com/user-attachments/assets/419f2104-f557-41d8-9b86-90efa1d62b52" />
 
 
-SNR antes del filtrado
--Voz Andrea: 22.97 dB
--Voz Paola: 23.08 dB
+SNR antes del filtrado:
 
-SNR después del filtrado
--Voz Andrea: 21.61 dB
--Voz Paola: 21.88 dB
+- Voz Andrea: 22.97 dB
+- Voz Paola: 23.08 dB
+
+SNR después del filtrado:
+
+- Voz Andrea: 21.61 dB
+- Voz Paola: 21.88 dB
 
 
 Teniendo en cuenta esto, con el método ICA, el SNR mejora significativamente, pasando de valores alrededor de 23 dB a más de 40 dB, lo que indica una excelente calidad de separación.
