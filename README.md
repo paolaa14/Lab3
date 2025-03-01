@@ -19,7 +19,7 @@ Se ubicaron dos personas en posiciones fijas dentro de la sala insonorizada (una
 
 
 
-Es importante destacar, que como se evidencia en la imagen 1, los microfonos implementados son de tipo apple, el cual posee distintas características que interfieren en las señales que se observarán más adelante, los dispositivos apple que implementamos poseen una frecuencia de muestreo de 44.1 kHz o de 48 KHz. Asimismo, el sistema de adquisición  es de digitalización, es decir que en esta práctica de laboratorio se diseñó para que logrará capturar las señales de voz en un entorno que a pesar de ser insonorizado se escucha ruido de ambiente, donde de la misma manera para el tiempo de la captura fue de aproximadamente 15 segundos por audio, también  se calculará el snr midiendo el ruido en la sala con los tres micrófonos.
+Es importante destacar, que como se evidencia en la imagen 1, los microfonos implementados son de tipo apple, el cual posee distintas características que interfieren en las señales que se observarán más adelante, los dispositivos apple que implementamos poseen una frecuencia de muestreo de 44.1 kHz o de 48 KHz. Asimismo, el sistema de adquisición  es de digitalización, es decir que en esta práctica de laboratorio se diseñó para que logrará capturar las señales de voz en un entorno que a pesar de ser insonorizado se escucha ruido de ambiente, donde de la misma manera para el tiempo de la captura fue de aproximadamente 15 segundos por audio, también  se calculará el snr midiendo el ruido en la sala con los dos micrófonos.
 
 
 2. Captura de la señal:
