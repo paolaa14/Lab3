@@ -208,11 +208,19 @@ En esta gráfica se un observa una concentración de energía en un rango de 
 
 En la imagen a continuación se observan los valores obtenidos;
 
-Imagen 13; SNR antes y después del filtrado
+Imagen 13; SNR antes y después del filtrado método (ICA)
 
 
 <img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
 
+
+
+- Como ítem adicional, relizamos el cálculo de la misma manera que ya se mencionó pero por el método de  Análisis de Componentes principales (PCA), esto con el fin de comparar la calidad de separado por ambos métodos y definir cual resulta más óptimo,
+
+  
+
+
+AGREGA AQUIIIIIIIIIIIIIII LA IMAGEN DEL OTRO SNRRRRR
 
 
 
