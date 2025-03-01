@@ -218,6 +218,8 @@ Imagen 13; SNR antes y después del filtrado método (ICA)
 La voz de andrea pasó de 22.97 dB , a 40.58 dB, lo que indica una mejora significativa  de las claridad de la señal, y la voz de paola pasó de 23.08 dB a 40.67dB, lo que evidencia una mejoría muy alta.
 
   
+Para recordar;el código para reLizar este método, junto con todas las gráficas expuestas anteriormente, se encuentra en el archvivo lab333, el cual se puede seleccionar para conocer todo el codigo y en caso de quererlo , descargar las librerias como se explicó y se podrá ver en la consola de su spyder.
+
 
 - Como ítem adicional, relizamos el cálculo de la misma manera que ya se mencionó pero por el método de  Análisis de Componentes principales (PCA), esto con el fin de comparar la calidad de separado por ambos métodos y definir cual resulta más óptimo,
 
@@ -241,6 +243,12 @@ Teniendo en cuenta esto, con el método ICA, el SNR mejora significativamente, p
 Con el método PCA, el SNR disminuye ligeramente después del filtrado, quedando cerca de 21 dB, lo que es apenas aceptable y sugiere que el filtrado no tuvo un impacto positivo.
 
 Para conluir la parte del SNR, antes de realizar el  filtrado, el SNR por el método (ICA) estaba en un rango aceptable (~23 dB), indicando que la señal tenía una calidad moderada, no obstante después del filtrado, el SNR aumentó a más de 40 dB, lo que indica una calidad excelente en la separación y limpieza de la señal, por lo que el método de separación de señales demuestra su efectividad en mejorar la señal capturada.
+
+
+
+
+Para recordar;el código para reLizar este segundo método, se encuentra en el archvivo metodo2, el cual se puede seleccionar para conocer todo el codigo y en caso de quererlo , descargar las librerias como se explicó y se podrá ver en la consola de su spyder.
+
 
 
 
