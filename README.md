@@ -31,14 +31,48 @@ imagen 2; señales voz y ruido en el dominio del tiempo
 
 <img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
 
-2.2. Se grabo el ruido de la sala que en nuestro caso fue un salón insonorizado, con 3 micrófonos distintos (como se observó previamente en la imagen 1), donde es importante mencionar que los audios del ruido ambiente y la voz de paola y andrea, se encuentran en la parte inicial de este trabajo, es decir, que si desean escuchar los audios los pueden descargar, esto se hizo con el fin de mostrar la práctica simultanemanete a la explicación. A partir de esto, se quería calcular el SNR de cada señal (cada voz se le saco una señal), 
-
-
-- Antes de continuar, es necesario mencionar que para que funcione el código de forma correcta se debe;
+2.2. Se grabo el ruido de la sala que en nuestro caso fue un salón insonorizado, con 3 micrófonos distintos (como se observó previamente en la imagen 1), donde es importante mencionar que los audios del ruido ambiente y la voz de paola y andrea, se encuentran en la parte inicial de este trabajo, es decir, que si desean escuchar los audios los pueden descargar, esto se hizo con el fin de mostrar la práctica simultanemanete a la explicación. A partir de esto, se quería calcular el SNR de cada señal (cada voz se le saco una señal), lo cual se obversavará en la imagen 3, más adelante.
 
 
 
+- Antes de continuar se debe aclarar;
 
+Para correr el codigo y que funcione correctamente se deben descargar ciertas cosas, inicialmente en la consola de spyder se deben descargar librerías de la siguiente manera; pip install numpy matplotlib wfdb scipy, estas son para;
+
+- import numpy as np: es para que permita correr cálculos númericos y arrays en caso de tenerlos.
+- import matplotlib.pyplot as plt :grafica señales de audio y transformaciones, como espectros de frecuencia
+- import scipy.io.wavfile as wavfile ; lee archivos en formato WAV, Con wavfile.read() se cargan  archivos WAV y se obtiene su frecuencia de muestreo y los datos.
+-from scipy.fftpack import fft; Importa la Transformada Rápida de Fourier (FFT), que se usa para convertir una señal del dominio del tiempo al dominio de la frecuencia.
+- from sklearn.decomposition import FastICA; implementa el Análisis de Componentes Independientes (ICA), que se usa para separar señales mezcladas (más adelante lo veremos).
+- import sounddevice as sd; permite la grabación y reproducción de audio en tiempo real, se usa para capturar sonido desde un micrófono o reproducir audio procesado.
+- from scipy.signal import butter, filtfilt; se usa para diseñar y aplicar filtros (como el que usaremos más adelante), butter();  crea un filtro Butterworth, que es un tipo de filtro pasa-bajos, pasa-altos, pasa-banda, etc y filtfilt() aplica el filtro a una señal sin introducir desfases.
+
+ 
+
+Con estas librerias descargadas, se procedió a calcular el SNR, el código calcula el SNR de cada señal  antes y después del filtrado  ,que se usa para medir como se encuentra la señal o mas bien la calidad de esta, este cálculo se realiza de la siguiente manera; 
+
+  ¨def calculate_snr(signal, noise):
+    signal_power = np.mean(signal ** 2)  # Potencia promedio de la señal
+    noise_power = np.mean(noise ** 2)    # Potencia promedio del ruido
+    snr = 10 * np.log10(signal_power / noise_power)  # Cálculo del SNR en dB
+    return snr ¨
+
+ y los resultados se evalúan con el criterio:
+-SNR < -10 dB → Mala calidad.
+-SNR entre 10 y 20 dB → Aceptable.
+-SNR > 20 dB → Excelente calidad.
+
+En la imagen a continuación se observan los valores obtenidos;
+
+Imagen 3; SNR antes y después del filtrado
+
+
+<img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
+
+
+Teniendo en cuenta esto, la voz de andrea pasó de 22.97 dB , a 40.58 dB, lo que indica una mejora significativa  de las claridad de la señal, y la voz de paola pasó de 23.08 dB a 40.67dB, lo que evidencia una mejoría muy alta.
+
+Para conluir la parte del SNR, antes de realizar el  filtrado, el SNR estaba en un rango aceptable (~23 dB), indicando que la señal tenía una calidad moderada, no obstante después del filtrado, el SNR aumentó a más de 40 dB, lo que indica una calidad excelente en la separación y limpieza de la señal, por lo que el método de separación de señales demuestra su efectividad en mejorar la señal capturada.
 
 
 
