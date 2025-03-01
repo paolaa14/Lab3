@@ -261,8 +261,9 @@ En la imagen a continuación se observan los valores obtenidos;
 
 Imagen 13; SNR antes y después del filtrado método (ICA)
 
+<img width="592" alt="Captura de pantalla 2025-03-01 a la(s) 3 06 04 p m" src="https://github.com/user-attachments/assets/df2e953b-0ce7-40cd-952a-f32e2b23194a" />
 
-<img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
+
 
 La voz de andrea pasó de 22.97 dB , a 40.58 dB, lo que indica una mejora significativa  de las claridad de la señal, y la voz de paola pasó de 23.08 dB a 40.67dB, lo que evidencia una mejoría muy alta.
 
@@ -295,7 +296,8 @@ Se calcula la correlación entre cada componente PCA y la voz original de Paola 
 
 Imagen 14; SNR antes y después del filtrado método (PCA);
 
-<img width="571" alt="Captura de pantalla 2025-03-01 a la(s) 11 58 24 a m" src="https://github.com/user-attachments/assets/419f2104-f557-41d8-9b86-90efa1d62b52" />
+<img width="560" alt="Captura de pantalla 2025-03-01 a la(s) 3 08 20 p m" src="https://github.com/user-attachments/assets/9b8a58cc-538c-42aa-8682-ac371a5177d8" />
+
 
 
 SNR antes del filtrado:
