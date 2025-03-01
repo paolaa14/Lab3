@@ -195,15 +195,59 @@ En esta gráfica se un observa una concentración de energía en un rango de 
 
 
 
-- Por otro lado, Con las librerias descargadas anteriormente, se procedió a calcular el SNR, el código calcula el SNR de cada señal  antes y después del filtrado  ,que se usa para medir como se encuentra la señal o mas bien la calidad de esta, este cálculo se realiza de la siguiente manera; 
+- Por otro lado, Con las librerias descargadas anteriormente, se procedió a calcular el SNR, el código calcula el SNR de cada señal  antes y después del filtrado  ,que se usa para medir como se encuentra la señal o mas bien la calidad de esta, este cálculo se va a explicar por partes para entenderlo y no tener la neesidad de abrir o cargar el código, sin embargo, en caso de así quererlo pueden descargar las librerias ya mencionadas y compilar el codigo para visualizarlo usted mismo/a; 
 
-  ¨def calculate_snr(signal, noise):
-    signal_power = np.mean(signal ** 2)  # Potencia promedio de la señal
-    noise_power = np.mean(noise ** 2)    # Potencia promedio del ruido
-    snr = 10 * np.log10(signal_power / noise_power)  # Cálculo del SNR en dB
-    return snr ¨
 
- y los resultados se evalúan con el criterio:
+**Explicación método ICA, parte del código;
+Antes de aplicar ICA, el código carga y normaliza las señales de entrada, de la siguiente manera:
+
+¨fs1, voz_andrea = wavfile.read('Voz%20Andrea.wav')
+fs2, ruido = wavfile.read('RuidoAmbiente.wav')
+fs3, voz_paola = wavfile.read('Voz%20Paola.wav')
+
+# Normalizar las señales
+voz_andrea = voz_andrea.astype(np.float32) / np.max(np.abs(voz_andrea))
+ruido = ruido.astype(np.float32) / np.max(np.abs(ruido))
+voz_paola = voz_paola.astype(np.float32) / np.max(np.abs(voz_paola))¨
+
+Aquí se cargan las señales de voz de Andrea, Paola y el ruido ambiente. Luego, se normalizan para asegurarse de que todas tengan valores dentro del mismo rango (-1 a 1), lo que mejora la estabilidad del algoritmo ICA.
+
+Después, el código ajusta la longitud de las señales para que todas sean del mismo tamaño, lo cual se hace de esta forma :
+
+¨min_length = min(len(voz_andrea), len(ruido), len(voz_paola))
+voz_andrea = voz_andrea[:min_length]
+ruido = ruido[:min_length]
+voz_paola = voz_paola[:min_length]¨
+
+Esto es importante porque ICA trabaja con matrices de tamaño uniforme.
+Una vez que las señales están listas, se crea una matriz que contiene las tres señales como columnas (una mezcla de las fuentes originales): ¨mezcla = np.vstack((voz_andrea, ruido, voz_paola)).T¨  y esto genera una matriz donde cada fila es una muestra de tiempo y cada columna es una de las señales mezcladas.
+
+Luego, se aplica ICA utilizando la implementación de FastICA de scikit-learn, que en el código, se visualiza de la siguiente manera;
+¨ica = FastICA(n_components=3)
+separadas = ica.fit_transform(mezcla)¨
+ICA no garantiza que las señales separadas aparezcan en el mismo orden que las originales. Para corregir esto, el código calcula la correlación entre cada componente extraído y las señales originales: ¨correlaciones = np.array([[np.corrcoef(separadas[:, i], senales_originales[j])[0, 1] 
+                            for i in range(3)] for j in range(3)])
+orden_correcto = np.argmax(np.abs(correlaciones), axis=0)¨
+
+Esto busca la mayor correlación entre las señales extraídas y las originales, y asigna cada componente a la señal correcta.
+Después, reorganiza las señales separadas de acuerdo con este orden:
+
+¨senales_ordenadas = np.zeros_like(separadas)
+for i, index in enumerate(orden_correcto):
+    senales_ordenadas[:, index] = separadas[:, i]¨
+Ahora, las señales separadas coinciden con sus respectivas fuentes originales.
+
+Para mejorar la calidad de las voces separadas, el código aplica un filtro pasabanda que conserva las frecuencias de la voz humana (300 Hz - 3400 Hz):
+
+¨lowcut = 300  # Frecuencia de corte baja en Hz
+highcut = 3400  # Frecuencia de corte alta en Hz
+voz_andrea_filtrada = apply_filter(senales_ordenadas[:, componentes.index('Voz Andrea Separada')], lowcut, highcut, fs1)
+voz_paola_filtrada = apply_filter(senales_ordenadas[:, componentes.index('Voz Paola Separada')], lowcut, highcut, fs1)¨
+
+Esto ayuda a eliminar posibles interferencias o ruido fuera del rango de la voz humana.
+
+ Y de esta forma llegamos a la parte donde el código mide la relación señal a ruido (SNR) antes y después del filtrado para evaluar la mejora en la calidad de la señal separada, teniendo en cuenta que los resultados se evalúan con el criterio:
+
  
 -SNR < -10 dB → Mala calidad.
 -SNR entre 10 y 20 dB → Aceptable.
