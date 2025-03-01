@@ -248,9 +248,12 @@ Esto ayuda a eliminar posibles interferencias o ruido fuera del rango de la voz 
 
  Y de esta forma llegamos a la parte donde el código mide la relación señal a ruido (SNR) antes y después del filtrado para evaluar la mejora en la calidad de la señal separada, teniendo en cuenta que los resultados se evalúan con el criterio:
 
+
  
 -SNR < -10 dB → Mala calidad.
+
 -SNR entre 10 y 20 dB → Aceptable.
+
 -SNR > 20 dB → Excelente calidad.
 
 En la imagen a continuación se observan los valores obtenidos;
