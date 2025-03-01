@@ -200,3 +200,53 @@ En esta gráfica se un observa una concentración de energía en un rango de 
 
 
   
+3.3. Los métodos de separación de fuentes son;
+
+- El Análisis de Componentes Independientes (ICA);este separa las señales mezcladas pero asumiento que las fuentes son independientes, este usualmente se usa para recuperar voces separadas cuando se habla al mismo tiempo.
+- El Análisis de Componentes principales (PCA); este reduce la dimensionalidad de las señales, pero manteniendo máxima varianza, es decir, se implementa en ambitos como eliminar ruido en señales acústicas y mejora la señal en entorno que sea muy ruidoso, por ejemplo si se tienen microfonos, este permite identificar las direcciones dominantes de las fuentes de sonido.
+- El Beamforming; en este se implementan microfonos o arreglos de microfonos, para identificar las señales que vienen de una dirección especifica, como por ejemplo para captar la voz en conferencias o grabaciones, donde se mejora la voz del usuario y se reduce el ruido del fondo.
+- Filtrado adaptativo (LMS, RLS); este asjusta los coeficientes de un filtro digital para quitar las interferncias, como por ejemplo para quitar el eco de las llamadas de voz, o eleminar el ruido en señales cerebrales.
+- Transformada de fourier corto tiempo; esta separa las señales en el dominio del tiempo- frecuencia para lograr identificar y de la misma forma aislar los componentes, como por ejemplo, separar voz y música o eliminar ruido de señales de radar.
+- Redes neuronales profundas (DNN) ; aprende patrones de separacion pero a partir de grandes volumenes de datos, es decir cuando se mejora el audio en las llamadas de voz o videoconferencias o separar fuentes en grabaciones musicales.
+
+
+
+4. En esta parte se evaluan  los resultados comparando la señal aislada con la señal original utilizado
+métricas de calidad como la relación señal/ruido para cuantificar el desempeño de la separación. 
+Es neceario mencionar que la VOZ DE INTERÉS FUE LA DE PAOLA, por ende ;
+
+
+-En la imagen 5, donde se muestra la señal de voz de Paola separada, se observa una reducción significativa de la interferencia de la voz de Andrea y del ruido. Esto indica que el proceso de separación ha sido exitoso.
+
+Al comparar con la imagen 10, que muestra la voz de Paola después del filtrado, se aprecia que la señal conserva su estructura temporal, pero con una posible mejora en la claridad debido a la reducción del ruido residual.
+
+Las imágenes 7 y 12 muestran el espectro de la señal de voz de Paola separada y filtrada. Se puede notar que la señal de interés (paola) mantiene componentes de frecuencia en un rango coherente con una voz humana (~300 Hz - 3.4 kHz).
+
+La reducción de componentes de ruido fuera de este rango sugiere que el filtrado ha sido efectivo. En particular, la disminución de energía en frecuencias más altas o bajas indica que los métodos aplicados lograron aislar la voz sin distorsionar demasiado el contenido espectral.
+
+Retomando SNR de la imagen 3;
+Dado que el SNR de la voz de Paola mejoró significativamente (de 23.88 dB a 40.67 dB), esto indica que la calidad de la señal aumentó notablemente tras la separación y el filtrado, este incremento sugiere que el método aplicado logró una limpieza efectiva de la señal, eliminando la mayoría del ruido y mejorando la inteligibilidad de la voz de Paola.
+
+
+
+
+5.Preguntas finales refuerzo de aprendizaje;
+
+Con esta práctica se espera que como estudiantes logreemos reproducir  por separado el audio de cada una de las voces capturadas a partir de la obtención de dos señales con dos voces mezcladas.
+
+
+5.2. ¿Cómo afecta la posición relativa de los micrófonos y las fuentes sonoras en la efectividad de la separación de señales?
+
+- La posición relativa de los micrófonos y las fuentes sonoras es un factor clave en la efectividad de la separación de señales. Afecta directamente la capacidad de separación para distinguir y aislar cada voz. 
+Entonces, si la fuente está demasiado cerca de un micrófono y lejos de otro, la señal captada tendrá una diferencia de amplitud considerable, lo que puede ser útil para separar señales basadas en la intensidad, sin embargo, si la distancia es demasiado grande, la señal puede degradarse debido a la atenuación del sonido en el aire, afectando la claridad y precisión de la separación.
+
+También, si los micrófonos están cerca de superficies reflectantes, las reflexiones pueden interferir con las señales directas, generando ecos y dificultando la separación de las voces como se realizó en este laboratorio. 
+Asimismo, un solo micrófono tiene menos información espacial y depende más de técnicas de filtrado espectral.
+
+
+ 5.3. ¿Qué mejoras implementaría en la metodología para obtener mejores resultados?
+
+
+- Asegurar que los micrófonos estén equidistantes de las fuentes para minimizar problemas en la captura de voces, esto lo podriamos mejorar tomando una medida más exacta, de esta forma se podría controlar más este factor.
+- Medir la respuesta de los micrófonos en la sala para compensar efectos de reflexiones.
+- optimizar la disposición de los micrófonos, usar algoritmos más avanzados de separación y mejorar la reducción de ruido para obtener mejores resultados en términos de claridad y calidad de la voz separada.
