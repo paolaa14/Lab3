@@ -23,17 +23,23 @@ Es importante destacar, que como se evidencia en la imagen 1, los microfonos imp
 
 2. Captura de la señal:
 
-2.1.Se generó la señal mediante la voz de los dos sujetos de prueba; cada uno dijo  una frase diferente durante el tiempo de captura de la señal (aproximadamente 15 segundos). Las señales de los micrófonos deben ser registradas por el sistema de adquisición y guardas para ser analizadas, lo que se evidencia en la imagen 2.
+2.1.Se generó la señal mediante la voz de los dos sujetos de prueba; cada uno dijo  una frase diferente durante el tiempo de captura de la señal (aproximadamente 15 segundos). Las señales de los micrófonos deben ser registradas por el sistema de adquisición y guardas para ser analizadas, lo que se evidencia en la imagen 2, donde se observa la señal de voz de Paola junto con las señales de Andrea y el ruido en el dominio del tiempo. Se aprecia una superposición entre las señales, lo que sugiere que la separación de fuentes es necesaria para extraer la voz de interés.
+
 
 imagen 2; señales voz y ruido en el dominio del tiempo
 
 
 <img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
 
+2.2. Se grabo el ruido de la sala que en nuestro caso fue un salón insonorizado, con 3 micrófonos distintos (como se observó previamente en la imagen 1), donde es importante mencionar que los audios del ruido ambiente y la voz de paola y andrea, se encuentran en la parte inicial de este trabajo, es decir, que si desean escuchar los audios los pueden descargar, esto se hizo con el fin de mostrar la práctica simultanemanete a la explicación. A partir de esto, se quería calcular el SNR de cada señal (cada voz se le saco una señal), 
 
 
-En la imagen 2, se observa la señal de voz de Paola junto con las señales de Andrea y el ruido en el dominio del tiempo. Se aprecia una superposición entre las señales, lo que sugiere que la separación de fuentes es necesaria para extraer la voz de interés.
+- Antes de continuar, es necesario mencionar que para que funcione el código de forma correcta se debe;
 
 
 
 
+
+
+
+  
