@@ -13,8 +13,10 @@ Imagen 1. Organizacion microfonos;
 
 ![WhatsApp Image 2025-02-27 at 20 49 38](https://github.com/user-attachments/assets/e4d0c5e3-a3f4-42c0-b970-86eeedc8014b)
 
+En cuanto a las coordenadas, de estos dos microfonos, se evidencia en la imagen 1, que el primer microfono esta abajo a la izquierda, y el otro en la parte superior derecha, la distancia diagonal entre los dos es de 2.9 m , esta medida se tomó con un metro virtual que posee el disposito iphone, y para ser más precisos, el micrfono 1, que es el de abajo tiene una distancia de 1.5 m desde el centro de la sala hasta donde está, y el microfono 2, tiene una distancia de 1.8 m desde el centro de la sala.
 
-Se ubicaron dos personas en posiciones fijas dentro de la sala insonorizada (una en cada extremo). Es importante mencionar que estaban localizados a distancias diferentes y orientados en distintas direcciones para simular un entorno de "fiesta de cóctel".
+
+Para continuar, se ubicaron dos personas en posiciones fijas dentro de la sala insonorizada (una en cada extremo). Es importante mencionar que estaban localizados a distancias diferentes y orientados en distintas direcciones para simular un entorno de "fiesta de cóctel".
 
 
 
@@ -273,7 +275,6 @@ Para recordar;el código para reLizar este segundo método, se encuentra en el a
 
 
 
-
 4. En esta parte se evaluan  los resultados comparando la señal aislada con la señal original utilizado
 métricas de calidad como la relación señal/ruido para cuantificar el desempeño de la separación. 
 Es neceario mencionar que la VOZ DE INTERÉS FUE LA DE PAOLA, por ende ;
@@ -289,6 +290,7 @@ La reducción de componentes de ruido fuera de este rango sugiere que el filtra
 
 Retomando SNR de la imagen 13;
 Dado que el SNR de la voz de Paola mejoró significativamente (de 23.88 dB a 40.67 dB), esto indica que la calidad de la señal aumentó notablemente tras la separación y el filtrado, este incremento sugiere que el método aplicado logró una limpieza efectiva de la señal, eliminando la mayoría del ruido y mejorando la inteligibilidad de la voz de Paola.
+
 
 
 
