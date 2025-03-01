@@ -12,6 +12,7 @@ Para este laboratorio,se recreó el problema de la fiesta de coctel, donde exist
 
 
 Imagen 1. Organizacion microfonos;
+
 ![WhatsApp Image 2025-02-27 at 20 49 38](https://github.com/user-attachments/assets/e4d0c5e3-a3f4-42c0-b970-86eeedc8014b)
 
 
@@ -30,6 +31,8 @@ imagen 2; señales voz y ruido en el dominio del tiempo
 
 
 <img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
+
+
 
 2.2. Se grabo el ruido de la sala que en nuestro caso fue un salón insonorizado, con 3 micrófonos distintos (como se observó previamente en la imagen 1), donde es importante mencionar que los audios del ruido ambiente y la voz de paola y andrea, se encuentran en la parte inicial de este trabajo, es decir, que si desean escuchar los audios los pueden descargar, esto se hizo con el fin de mostrar la práctica simultanemanete a la explicación. A partir de esto, se quería calcular el SNR de cada señal (cada voz se le saco una señal), lo cual se obversavará en la imagen 3, más adelante.
 
@@ -148,6 +151,51 @@ Imagen 9; espectro ruido separado:
 Se observa que el ruido tiene un pico de magnitud en frecuencias bajas y medias, lo que sugiere la presencia de ruido ambiental o de fondo, la eliminación de este ruido mejora significativamente la inteligibilidad de la señal de voz.
 
 
+
+
+3.2. Posterior a esto, se implementa un  filtro Butterworth pasa banda (se implementa este filtro porque despues de separarla con la técnica mencioanda la señal puede tener frecuencias no deseadas) para mejorar la calidad de las señales de voz y se definieron frecuencias de corte entre los 300 Hz Y 3400 Hz (que es el rango de frecuencias de la voz humana), que quiere decir que permitirá eliminar el ruido fuera del espectro típico del habla de nuestras voces, respecto al código se implementa  ¨butter_bandpass()¨, con frecuencia de corte baja ; 300 Hz y la frecuencia de corte alta 3.400 Hz y se aplica con apply_filter() usando scipy.signal.filtfilt(), que evita distorsiones en la señal filtrada, es necesario mencionar que este filtrado permitirá mejorar la calidad de la voz al eliminar el ruido de baja y alta frecuencia, por lo que el SNR que se obtendrá será mucho mejor después de la separación. estas voces filtradas se evidenciarán en las imagénes 10 y 11.
+
+
+
+Imagen 10. Voz paola filtrada;
+
+
+<img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
+
+
+La señal de voz de Paola ha sido filtrada, mostrando una variación en el tiempo que representa la modulación natural del habla, también se observa un rango de amplitud entre aproximadamente -8 mV y 8 mV y la señal presenta una estructura característica del habla, con regiones de mayor y menor intensidad.
+	
+
+
+Imagen 11. voz andrea filtrada;
+
+
+<img width="608" alt="Figure 2025-02-27 201341 (7)" src="https://github.com/user-attachments/assets/7826d6f2-7dbb-454a-b6d4-f1afee2f8911" />
+
+
+La señal de voz filtrada de Andrea muestra variaciones similares a la de Paola, con amplitudes comparables, se nota la presencia de pausas y momentos de mayor energía, característicos del habla natural.
+
+
+
+Y como en el caso de las voces no filtradas, a estas también se les sacó el espectro, lo que se evidenciará en las imagénes 12  y 13.
+
+
+
+Imagen 12. Espectro de voz paola filtrada;
+
+<img width="625" alt="Figure 2025-02-27 201341 (10)" src="https://github.com/user-attachments/assets/2ae8f0ec-8258-43d5-94d5-e2da7e5c949d" />
+
+
+En esta gráfica se muestra una concentración de energía en un rango de frecuencias específico, lo cual es característico de una señal de voz bien definida.;
+
+
+Imagen 10;espectro de voz andrea filtrada;
+
+
+<img width="625" alt="Figure 2025-02-27 201341 (8)" src="https://github.com/user-attachments/assets/9f4443cf-b787-4bf2-b72d-5ab6f1bae626" />
+
+
+En esta gráfica se un observa una concentración de energía en un rango de frecuencias específico, similar a la voz filtrada de paola, sin embargo la de andrea posee picos de magnitud que indican las principales frecuencias componentes de la señal vocal.
 
 
 
