@@ -4,11 +4,9 @@ Posterior , se analizaron las voces grabadas por los microfonos que eran mezclas
 Para este laboratorio,se recreó el problema de la fiesta de coctel, donde existen 2 fuentes sonoras capturadas por un arreglo de 3 micrófonos de acuerdo con la siguiente metodología.
 
 
-
-
 1. Configuración del sistema:
 
-1.1. Se conectaron los 3 micrófonos al sistema de adquisición de datos y se distribuyeron de una forma estratégica en la sala insonorizada. Los micrófonos estaban ubicados de manera que cada uno capturó diferentes combinaciones de las señales provenientes de las dos fuentes, tal como se evidenciará en la imagen 1.
+1.1. Se conectaron los 2 micrófonos al sistema de adquisición de datos y se distribuyeron de una forma estratégica en la sala insonorizada. Los micrófonos estaban ubicados de manera que cada uno capturó diferentes combinaciones de las señales provenientes de las dos fuentes, tal como se evidenciará en la imagen 1.
 
 
 Imagen 1. Organizacion microfonos;
@@ -17,6 +15,8 @@ Imagen 1. Organizacion microfonos;
 
 
 Se ubicaron dos personas en posiciones fijas dentro de la sala insonorizada (una en cada extremo). Es importante mencionar que estaban localizados a distancias diferentes y orientados en distintas direcciones para simular un entorno de "fiesta de cóctel".
+
+
 
 
 Es importante destacar, que como se evidencia en la imagen 1, los microfonos implementados son de tipo apple, el cual posee distintas características que interfieren en las señales que se observarán más adelante, los dispositivos apple que implementamos poseen una frecuencia de muestreo de 44.1 kHz o de 48 KHz. Asimismo, el sistema de adquisición  es de digitalización, es decir que en esta práctica de laboratorio se diseñó para que logrará capturar las señales de voz en un entorno que a pesar de ser insonorizado se escucha ruido de ambiente, donde de la misma manera para el tiempo de la captura fue de aproximadamente 15 segundos por audio, también  se calculará el snr midiendo el ruido en la sala con los tres micrófonos.
@@ -34,7 +34,10 @@ imagen 2; señales voz y ruido en el dominio del tiempo
 
 
 
-2.2. Se grabo el ruido de la sala que en nuestro caso fue un salón insonorizado, con 3 micrófonos distintos (como se observó previamente en la imagen 1), donde es importante mencionar que los audios del ruido ambiente y la voz de paola y andrea, se encuentran en la parte inicial de este trabajo, es decir, que si desean escuchar los audios los pueden descargar, esto se hizo con el fin de mostrar la práctica simultanemanete a la explicación. A partir de esto, se quería calcular el SNR de cada señal (cada voz se le saco una señal), lo cual se obversavará en la imagen 3, más adelante.
+2.2. Se grabo el ruido de la sala que en nuestro caso fue un salón insonorizado, con 2 micrófonos distintos (como se observó previamente en la imagen 1), donde es importante mencionar que los audios del ruido ambiente y la voz de paola y andrea, se encuentran en la parte inicial de este trabajo, es decir, que si desean escuchar los audios los pueden descargar, esto se hizo con el fin de mostrar la práctica simultanemanete a la explicación.
+
+
+
 
 
 
@@ -50,9 +53,142 @@ Para correr el codigo y que funcione correctamente se deben descargar ciertas co
 - import sounddevice as sd; permite la grabación y reproducción de audio en tiempo real, se usa para capturar sonido desde un micrófono o reproducir audio procesado.
 - from scipy.signal import butter, filtfilt; se usa para diseñar y aplicar filtros (como el que usaremos más adelante), butter();  crea un filtro Butterworth, que es un tipo de filtro pasa-bajos, pasa-altos, pasa-banda, etc y filtfilt() aplica el filtro a una señal sin introducir desfases.
 
- 
 
-Con estas librerias descargadas, se procedió a calcular el SNR, el código calcula el SNR de cada señal  antes y después del filtrado  ,que se usa para medir como se encuentra la señal o mas bien la calidad de esta, este cálculo se realiza de la siguiente manera; 
+
+
+3. Los métodos de separación de fuentes son;
+
+- El Análisis de Componentes Independientes (ICA);este separa las señales mezcladas pero asumiento que las fuentes son independientes, este usualmente se usa para recuperar voces separadas cuando se habla al mismo tiempo.
+- El Análisis de Componentes principales (PCA); este reduce la dimensionalidad de las señales, pero manteniendo máxima varianza, es decir, se implementa en ambitos como eliminar ruido en señales acústicas y mejora la señal en entorno que sea muy ruidoso, por ejemplo si se tienen microfonos, este permite identificar las direcciones dominantes de las fuentes de sonido.
+- El Beamforming; en este se implementan microfonos o arreglos de microfonos, para identificar las señales que vienen de una dirección especifica, como por ejemplo para captar la voz en conferencias o grabaciones, donde se mejora la voz del usuario y se reduce el ruido del fondo.
+- Filtrado adaptativo (LMS, RLS); este asjusta los coeficientes de un filtro digital para quitar las interferncias, como por ejemplo para quitar el eco de las llamadas de voz, o eleminar el ruido en señales cerebrales.
+- Transformada de fourier corto tiempo; esta separa las señales en el dominio del tiempo- frecuencia para lograr identificar y de la misma forma aislar los componentes, como por ejemplo, separar voz y música o eliminar ruido de señales de radar.
+- Redes neuronales profundas (DNN) ; aprende patrones de separacion pero a partir de grandes volumenes de datos, es decir cuando se mejora el audio en las llamadas de voz o videoconferencias o separar fuentes en grabaciones musicales.
+
+
+
+3.1. A partir de esto, se seleccionó  la técnica de separación ¨análisis de componentes independientes (ICA)¨, que basicamente recupera señales originales que surgen de una mezcla sin saber como se combinaron inicialmente, tal como se escucha en los audios, en el código en particular que desarrollamos se implementa ¨FastICA(n_components=3)¨ (significa que se requiere separar las tres señales), lo que se aplica a as tres señales (Voz Andrea, Ruido y Voz Paola) y para lograr sacar los commponentes independientes se utilizó la función fit_transform() (encuentra y extrae las fuentes independientes de la mezcla), es decir las voces y el ruido por aparte, las señales realizadas mediante la voz se evidenciarán en las imagenes 3 ( voz andrea separada), imagen 5 (voz paola separada) y la imagen 7( ruido separado:).
+
+
+Seguido a esto se  realizó un análisis temporal y espectral de las señales capturadas por cada micrófono, identificando las características principales de cada fuente sonora. Utilizando la transformada de Fourier discreta (DFT) o la transformada rápida de Fourier (FFT), describiendo la información que se puede obtener con cada una de ellas.
+
+La Transformada Rápida de Fourier (FFT) es un método para convertir una señal del dominio del tiempo al dominio de la frecuencia y en el aspecto del código en términos generales permite visualizar el contenido espectral de las señales separadas y lo usamos para verificar que las señales separadas contienen las frecuencias correctas de la voz y que el ruido ha sido reducido, donde se usa ¨np.fft.fft()¨ para calcular la FFT y se grafican los resultados en escala logarítmica ¨(plt.semilogx())¨.
+
+En este lab, se usa un sistema que realiza un análisis en el dominio del tiempo y en el dominio de la frecuencia, lo que nos permitió comprender la calidad de la separación de las señales y la eficacia del filtrado que se aplicó. Las señales en el dominio del tiempo representan la variación del voltaje en función del tiempo. En las gráficas proporcionadas se pueden observar las señales de voz filtradas para  "Paola" y "Andrea".
+
+El análisis espectral permite visualizar la distribución de la energía de la señal en distintas frecuencias. Para ello, se ha utilizado la Transformada Rápida de Fourier (FFT), que convierte la señal en el dominio del tiempo al dominio de la frecuencia.
+
+Se utiliza la Transformada Rápida de Fourier para visualizar el espectro de las señales separadas y filtradas verificando si las señales están correctamente aisladas y si el ruido ha sido reducido, lo cual,  se evidnecia en las imagénes 4 (espectro voz andrea separado), imagen  6 (espectro voz paola separada) y la imagen 8  ( espectro ruido separado).
+
+
+Con esto claro, vamos a ver las señales separadas y su respectivo espectro; 
+
+señal ANDREA:
+Imagen 3; voz andrea separada:
+
+
+<img width="617" alt="Figure 2025-02-27 201341 (1)" src="https://github.com/user-attachments/assets/91ba2eda-bd65-4977-9e17-84e02e79d9cb" />
+
+
+En esta gráfica es importante mencionar que, se  observa una señal con variaciones claras en amplitud, lo que indica la presencia de segmentos con mayor energía (palabras enfatizadas) y pausas naturales entre palabras, también observamos que la señal parece tener una buena relación señal/ruido (SNR), ya que las variaciones de amplitud son más significativas en comparación con el ruido de fondo y  asu vez, no se observan patrones repetitivos ni artefactos evidentes de interferencia, lo que sugiere una buena separación de la voz.
+
+
+Imagen 4; espectro voz andrea separado:
+
+<img width="625" alt="Figure 2025-02-27 201341 (2)" src="https://github.com/user-attachments/assets/122691e9-ff2d-44b4-8760-93a76b0f2c41" />
+
+
+La señal procesada mantiene las componentes dominantes dentro del rango del habla y se observa una disminución en las frecuencias más altas y bajas, indicando que el filtrado ha eliminado ruido externo.
+
+
+
+
+señal PAOLA:
+Imagen 5; voz paola separada:
+
+<img width="608" alt="Figure 2025-02-27 201341 (5)" src="https://github.com/user-attachments/assets/0fb7fcdc-3ad0-471f-a5cf-e8ae4b191057" />
+
+
+En esta gráfica es importante mencionar que, la forma de onda tiene características similares a la de Andrea, pero con diferencias en el patrón de amplitud y en la duración de los segmentos hablados, observamos que la señal ha sido correctamente aislada, ya que no se observan rastros significativos de la voz de Andrea ni del ruido ambiental, de la misma manera hay partes de menor amplitud, lo que podría deberse a una diferencia en la intensidad de la voz del hablante o a la posición relativa del micrófono.
+
+
+imagen 6; espectro voz paola separada:
+
+<img width="625" alt="Figure 2025-02-27 201341 (6)" src="https://github.com/user-attachments/assets/3e63f054-b406-4709-b55d-37a5822d7dd3" />
+
+
+Se identifica la presencia de componentes frecuenciales en el rango de voz humana (aproximadamente entre 100 Hz y 4 kHz) y se observa una reducción significativa en las frecuencias fuera de este rango, indicando que el filtrado ha sido efectivo, la representación utiliza escala logarítmica para facilitar la observación de detalles en un amplio espectro.
+
+
+
+
+señal RUIDO AMBIENTE:
+Imagen 7; ruido separado:
+
+<img width="614" alt="Figure 2025-02-27 201341 (3)" src="https://github.com/user-attachments/assets/55168d99-e83a-4ec0-99ba-6219cda7687e" />
+
+
+En esta gráfica es importante mencionar que, el ruido separado muestra una señal más uniforme, sin grandes variaciones de amplitud como en las señales de voz, también se pueden notar picos en ciertos momentos, lo que podría deberse a sonidos externos como movimientos de objetos o ecos en la sala.
+La energía del ruido parece distribuida a lo largo de toda la señal sin pausas marcadas, lo cual es característico de un ruido de fondo constante.
+
+
+
+Imagen 8; espectro ruido separado:
+
+<img width="625" alt="Figure 2025-02-27 201341 (4)" src="https://github.com/user-attachments/assets/d26c3507-1ff7-4afc-8126-3b29222e892f" />
+
+
+Se observa que el ruido tiene un pico de magnitud en frecuencias bajas y medias, lo que sugiere la presencia de ruido ambiental o de fondo, la eliminación de este ruido mejora significativamente la inteligibilidad de la señal de voz.
+
+
+
+
+3.2. Posterior a esto, se implementa un  filtro Butterworth pasa banda (se implementa este filtro porque despues de separarla con la técnica mencioanda la señal puede tener frecuencias no deseadas) para mejorar la calidad de las señales de voz y se definieron frecuencias de corte entre los 300 Hz Y 3400 Hz (que es el rango de frecuencias de la voz humana), que quiere decir que permitirá eliminar el ruido fuera del espectro típico del habla de nuestras voces, respecto al código se implementa  ¨butter_bandpass()¨, con frecuencia de corte baja ; 300 Hz y la frecuencia de corte alta 3.400 Hz y se aplica con apply_filter() usando scipy.signal.filtfilt(), que evita distorsiones en la señal filtrada, es necesario mencionar que este filtrado permitirá mejorar la calidad de la voz al eliminar el ruido de baja y alta frecuencia, por lo que el SNR que se obtendrá será mucho mejor después de la separación. estas voces filtradas  Y sus respectivos espectros se evidenciarán a continuación en las imagénes 9,10,11 y 12.
+
+
+señal PAOLA:
+Imagen 9. Voz paola filtrada;
+
+
+<img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
+
+
+La señal de voz de Paola ha sido filtrada, mostrando una variación en el tiempo que representa la modulación natural del habla, también se observa un rango de amplitud entre aproximadamente -8 mV y 8 mV y la señal presenta una estructura característica del habla, con regiones de mayor y menor intensidad.
+	
+
+
+Imagen 10. Espectro de voz paola filtrada;
+
+<img width="625" alt="Figure 2025-02-27 201341 (10)" src="https://github.com/user-attachments/assets/2ae8f0ec-8258-43d5-94d5-e2da7e5c949d" />
+
+
+En esta gráfica se muestra una concentración de energía en un rango de frecuencias específico, lo cual es característico de una señal de voz bien definida.;
+
+
+
+
+
+señal ANDREA:
+Imagen 11. voz andrea filtrada;
+
+
+<img width="608" alt="Figure 2025-02-27 201341 (7)" src="https://github.com/user-attachments/assets/7826d6f2-7dbb-454a-b6d4-f1afee2f8911" />
+
+
+La señal de voz filtrada de Andrea muestra variaciones similares a la de Paola, con amplitudes comparables, se nota la presencia de pausas y momentos de mayor energía, característicos del habla natural.
+
+
+Imagen 12;espectro de voz andrea filtrada;
+
+
+<img width="625" alt="Figure 2025-02-27 201341 (8)" src="https://github.com/user-attachments/assets/9f4443cf-b787-4bf2-b72d-5ab6f1bae626" />
+
+
+En esta gráfica se un observa una concentración de energía en un rango de frecuencias específico, similar a la voz filtrada de paola, sin embargo la de andrea posee picos de magnitud que indican las principales frecuencias componentes de la señal vocal.
+
+
+
+- Por otro lado, Con las librerias descargadas anteriormente, se procedió a calcular el SNR, el código calcula el SNR de cada señal  antes y después del filtrado  ,que se usa para medir como se encuentra la señal o mas bien la calidad de esta, este cálculo se realiza de la siguiente manera; 
 
   ¨def calculate_snr(signal, noise):
     signal_power = np.mean(signal ** 2)  # Potencia promedio de la señal
@@ -67,10 +203,12 @@ Con estas librerias descargadas, se procedió a calcular el SNR, el código cal
 
 En la imagen a continuación se observan los valores obtenidos;
 
-Imagen 3; SNR antes y después del filtrado
+Imagen 13; SNR antes y después del filtrado
 
 
 <img width="574" alt="Captura de pantalla 2025-02-27 a la(s) 8 14 59 p m" src="https://github.com/user-attachments/assets/6280e28b-ebdd-48a6-94cf-63aedf5c8b82" />
+
+
 
 
 Teniendo en cuenta esto, la voz de andrea pasó de 22.97 dB , a 40.58 dB, lo que indica una mejora significativa  de las claridad de la señal, y la voz de paola pasó de 23.08 dB a 40.67dB, lo que evidencia una mejoría muy alta.
@@ -78,136 +216,6 @@ Teniendo en cuenta esto, la voz de andrea pasó de 22.97 dB , a 40.58 dB, lo qu
 Para conluir la parte del SNR, antes de realizar el  filtrado, el SNR estaba en un rango aceptable (~23 dB), indicando que la señal tenía una calidad moderada, no obstante después del filtrado, el SNR aumentó a más de 40 dB, lo que indica una calidad excelente en la separación y limpieza de la señal, por lo que el método de separación de señales demuestra su efectividad en mejorar la señal capturada.
 
 
-
-
-3.Para continuar, se utilizó  la técnica de separación ¨análisis de componentes independientes (ICA)¨, que basicamente recupera señales originales que surgen de una mezcla sin saber como se combinaron inicialmente, tal como se escucha en los audios, en el código en particular que desarrollamos se implementa ¨FastICA(n_components=3)¨ (significa que se requiere separar las tres señales), lo que se aplica a as tres señales (Voz Andrea, Ruido y Voz Paola) y para lograr sacar los commponentes independientes se utilizó la función fit_transform() (encuentra y extrae las fuentes independientes de la mezcla), es decir las voces y el ruido por aparte, las señales realizadas mediante la voz se evidenciarán en las imagenes 4,5 y 6.
-
-
-
-Imagen 4; voz andrea separada:
-
-
-<img width="617" alt="Figure 2025-02-27 201341 (1)" src="https://github.com/user-attachments/assets/91ba2eda-bd65-4977-9e17-84e02e79d9cb" />
-
-
-En esta gráfica es importante mencionar que, se  observa una señal con variaciones claras en amplitud, lo que indica la presencia de segmentos con mayor energía (palabras enfatizadas) y pausas naturales entre palabras, también observamos que la señal parece tener una buena relación señal/ruido (SNR), ya que las variaciones de amplitud son más significativas en comparación con el ruido de fondo y  asu vez, no se observan patrones repetitivos ni artefactos evidentes de interferencia, lo que sugiere una buena separación de la voz.
-
-
-Imagen 5; voz paola separada:
-
-<img width="608" alt="Figure 2025-02-27 201341 (5)" src="https://github.com/user-attachments/assets/0fb7fcdc-3ad0-471f-a5cf-e8ae4b191057" />
-
-
-En esta gráfica es importante mencionar que, la forma de onda tiene características similares a la de Andrea, pero con diferencias en el patrón de amplitud y en la duración de los segmentos hablados, observamos que la señal ha sido correctamente aislada, ya que no se observan rastros significativos de la voz de Andrea ni del ruido ambiental, de la misma manera hay partes de menor amplitud, lo que podría deberse a una diferencia en la intensidad de la voz del hablante o a la posición relativa del micrófono.
-
-
-
-Imagen 6; ruido separado:
-
-<img width="614" alt="Figure 2025-02-27 201341 (3)" src="https://github.com/user-attachments/assets/55168d99-e83a-4ec0-99ba-6219cda7687e" />
-
-
-En esta gráfica es importante mencionar que, el ruido separado muestra una señal más uniforme, sin grandes variaciones de amplitud como en las señales de voz, también se pueden notar picos en ciertos momentos, lo que podría deberse a sonidos externos como movimientos de objetos o ecos en la sala.
-La energía del ruido parece distribuida a lo largo de toda la señal sin pausas marcadas, lo cual es característico de un ruido de fondo constante.
-
-
-
-
-
-3.1. Seguido a esto se  realizó un análisis temporal y espectral de las señales capturadas por cada micrófono, identificando las características principales de cada fuente sonora. Utilizando la transformada de Fourier discreta (DFT) o la transformada rápida de Fourier (FFT), describiendo la información que se puede obtener con cada una de ellas.
-
-La Transformada Rápida de Fourier (FFT) es un método para convertir una señal del dominio del tiempo al dominio de la frecuencia y en el aspecto del código en términos generales permite visualizar el contenido espectral de las señales separadas y lo usamos para verificar que las señales separadas contienen las frecuencias correctas de la voz y que el ruido ha sido reducido, donde se usa ¨np.fft.fft()¨ para calcular la FFT y se grafican los resultados en escala logarítmica ¨(plt.semilogx())¨.
-
-En este lab, se usa un sistema que realiza un análisis en el dominio del tiempo y en el dominio de la frecuencia, lo que nos permitió comprender la calidad de la separación de las señales y la eficacia del filtrado que se aplicó. Las señales en el dominio del tiempo representan la variación del voltaje en función del tiempo. En las gráficas proporcionadas se pueden observar las señales de voz filtradas para  "Paola" y "Andrea".
-
-El análisis espectral permite visualizar la distribución de la energía de la señal en distintas frecuencias. Para ello, se ha utilizado la Transformada Rápida de Fourier (FFT), que convierte la señal en el dominio del tiempo al dominio de la frecuencia.
-
-Se utiliza la Transformada Rápida de Fourier para visualizar el espectro de las señales separadas y filtradas verificando si las señales están correctamente aisladas y si el ruido ha sido reducido, lo cual,  se evidnecia en las imagénes 7,8 y 9.
-
-
-
-
-imagen 7; espectro voz paola separada:
-
-<img width="625" alt="Figure 2025-02-27 201341 (6)" src="https://github.com/user-attachments/assets/3e63f054-b406-4709-b55d-37a5822d7dd3" />
-
-
-Se identifica la presencia de componentes frecuenciales en el rango de voz humana (aproximadamente entre 100 Hz y 4 kHz) y se observa una reducción significativa en las frecuencias fuera de este rango, indicando que el filtrado ha sido efectivo, la representación utiliza escala logarítmica para facilitar la observación de detalles en un amplio espectro.
-
-
-Imagen 8; espectro voz andrea separado:
-
-<img width="625" alt="Figure 2025-02-27 201341 (2)" src="https://github.com/user-attachments/assets/122691e9-ff2d-44b4-8760-93a76b0f2c41" />
-
-
-La señal procesada mantiene las componentes dominantes dentro del rango del habla y se observa una disminución en las frecuencias más altas y bajas, indicando que el filtrado ha eliminado ruido externo.
-
-
-Imagen 9; espectro ruido separado:
-
-<img width="625" alt="Figure 2025-02-27 201341 (4)" src="https://github.com/user-attachments/assets/d26c3507-1ff7-4afc-8126-3b29222e892f" />
-
-
-Se observa que el ruido tiene un pico de magnitud en frecuencias bajas y medias, lo que sugiere la presencia de ruido ambiental o de fondo, la eliminación de este ruido mejora significativamente la inteligibilidad de la señal de voz.
-
-
-
-
-3.2. Posterior a esto, se implementa un  filtro Butterworth pasa banda (se implementa este filtro porque despues de separarla con la técnica mencioanda la señal puede tener frecuencias no deseadas) para mejorar la calidad de las señales de voz y se definieron frecuencias de corte entre los 300 Hz Y 3400 Hz (que es el rango de frecuencias de la voz humana), que quiere decir que permitirá eliminar el ruido fuera del espectro típico del habla de nuestras voces, respecto al código se implementa  ¨butter_bandpass()¨, con frecuencia de corte baja ; 300 Hz y la frecuencia de corte alta 3.400 Hz y se aplica con apply_filter() usando scipy.signal.filtfilt(), que evita distorsiones en la señal filtrada, es necesario mencionar que este filtrado permitirá mejorar la calidad de la voz al eliminar el ruido de baja y alta frecuencia, por lo que el SNR que se obtendrá será mucho mejor después de la separación. estas voces filtradas se evidenciarán en las imagénes 10 y 11.
-
-
-
-Imagen 10. Voz paola filtrada;
-
-
-<img width="608" alt="Figure 2025-02-27 201341 (9)" src="https://github.com/user-attachments/assets/70b9ae11-659a-48f0-833a-50c677e336bc" />
-
-
-La señal de voz de Paola ha sido filtrada, mostrando una variación en el tiempo que representa la modulación natural del habla, también se observa un rango de amplitud entre aproximadamente -8 mV y 8 mV y la señal presenta una estructura característica del habla, con regiones de mayor y menor intensidad.
-	
-
-
-Imagen 11. voz andrea filtrada;
-
-
-<img width="608" alt="Figure 2025-02-27 201341 (7)" src="https://github.com/user-attachments/assets/7826d6f2-7dbb-454a-b6d4-f1afee2f8911" />
-
-
-La señal de voz filtrada de Andrea muestra variaciones similares a la de Paola, con amplitudes comparables, se nota la presencia de pausas y momentos de mayor energía, característicos del habla natural.
-
-
-
-Y como en el caso de las voces no filtradas, a estas también se les sacó el espectro, lo que se evidenciará en las imagénes 12  y 13.
-
-
-
-Imagen 12. Espectro de voz paola filtrada;
-
-<img width="625" alt="Figure 2025-02-27 201341 (10)" src="https://github.com/user-attachments/assets/2ae8f0ec-8258-43d5-94d5-e2da7e5c949d" />
-
-
-En esta gráfica se muestra una concentración de energía en un rango de frecuencias específico, lo cual es característico de una señal de voz bien definida.;
-
-
-Imagen 10;espectro de voz andrea filtrada;
-
-
-<img width="625" alt="Figure 2025-02-27 201341 (8)" src="https://github.com/user-attachments/assets/9f4443cf-b787-4bf2-b72d-5ab6f1bae626" />
-
-
-En esta gráfica se un observa una concentración de energía en un rango de frecuencias específico, similar a la voz filtrada de paola, sin embargo la de andrea posee picos de magnitud que indican las principales frecuencias componentes de la señal vocal.
-
-
-
-  
-3.3. Los métodos de separación de fuentes son;
-
-- El Análisis de Componentes Independientes (ICA);este separa las señales mezcladas pero asumiento que las fuentes son independientes, este usualmente se usa para recuperar voces separadas cuando se habla al mismo tiempo.
-- El Análisis de Componentes principales (PCA); este reduce la dimensionalidad de las señales, pero manteniendo máxima varianza, es decir, se implementa en ambitos como eliminar ruido en señales acústicas y mejora la señal en entorno que sea muy ruidoso, por ejemplo si se tienen microfonos, este permite identificar las direcciones dominantes de las fuentes de sonido.
-- El Beamforming; en este se implementan microfonos o arreglos de microfonos, para identificar las señales que vienen de una dirección especifica, como por ejemplo para captar la voz en conferencias o grabaciones, donde se mejora la voz del usuario y se reduce el ruido del fondo.
-- Filtrado adaptativo (LMS, RLS); este asjusta los coeficientes de un filtro digital para quitar las interferncias, como por ejemplo para quitar el eco de las llamadas de voz, o eleminar el ruido en señales cerebrales.
-- Transformada de fourier corto tiempo; esta separa las señales en el dominio del tiempo- frecuencia para lograr identificar y de la misma forma aislar los componentes, como por ejemplo, separar voz y música o eliminar ruido de señales de radar.
-- Redes neuronales profundas (DNN) ; aprende patrones de separacion pero a partir de grandes volumenes de datos, es decir cuando se mejora el audio en las llamadas de voz o videoconferencias o separar fuentes en grabaciones musicales.
 
 
 
@@ -218,13 +226,13 @@ Es neceario mencionar que la VOZ DE INTERÉS FUE LA DE PAOLA, por ende ;
 
 -En la imagen 5, donde se muestra la señal de voz de Paola separada, se observa una reducción significativa de la interferencia de la voz de Andrea y del ruido. Esto indica que el proceso de separación ha sido exitoso.
 
-Al comparar con la imagen 10, que muestra la voz de Paola después del filtrado, se aprecia que la señal conserva su estructura temporal, pero con una posible mejora en la claridad debido a la reducción del ruido residual.
+Al comparar con la imagen 9, que muestra la voz de Paola después del filtrado, se aprecia que la señal conserva su estructura temporal, pero con una posible mejora en la claridad debido a la reducción del ruido residual.
 
-Las imágenes 7 y 12 muestran el espectro de la señal de voz de Paola separada y filtrada. Se puede notar que la señal de interés (paola) mantiene componentes de frecuencia en un rango coherente con una voz humana (~300 Hz - 3.4 kHz).
+Las imágenes 6 y 10 muestran el espectro de la señal de voz de Paola separada y filtrada. Se puede notar que la señal de interés (paola) mantiene componentes de frecuencia en un rango coherente con una voz humana (~300 Hz - 3.4 kHz).
 
 La reducción de componentes de ruido fuera de este rango sugiere que el filtrado ha sido efectivo. En particular, la disminución de energía en frecuencias más altas o bajas indica que los métodos aplicados lograron aislar la voz sin distorsionar demasiado el contenido espectral.
 
-Retomando SNR de la imagen 3;
+Retomando SNR de la imagen 13;
 Dado que el SNR de la voz de Paola mejoró significativamente (de 23.88 dB a 40.67 dB), esto indica que la calidad de la señal aumentó notablemente tras la separación y el filtrado, este incremento sugiere que el método aplicado logró una limpieza efectiva de la señal, eliminando la mayoría del ruido y mejorando la inteligibilidad de la voz de Paola.
 
 
@@ -250,3 +258,8 @@ Asimismo, un solo micrófono tiene menos información espacial y depende más
 - Asegurar que los micrófonos estén equidistantes de las fuentes para minimizar problemas en la captura de voces, esto lo podriamos mejorar tomando una medida más exacta, de esta forma se podría controlar más este factor.
 - Medir la respuesta de los micrófonos en la sala para compensar efectos de reflexiones.
 - optimizar la disposición de los micrófonos, usar algoritmos más avanzados de separación y mejorar la reducción de ruido para obtener mejores resultados en términos de claridad y calidad de la voz separada.
+
+
+
+
+
