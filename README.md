@@ -223,7 +223,25 @@ Para recordar;el código para reLizar este método, junto con todas las gráfica
 
 - Como ítem adicional, relizamos el cálculo de la misma manera que ya se mencionó pero por el método de  Análisis de Componentes principales (PCA), esto con el fin de comparar la calidad de separado por ambos métodos y definir cual resulta más óptimo,
 
-  
+En este método, antes de aplicar el PCA, el código carga y normaliza las señales (las voces), Se leen tres archivos de audio:
+1. Voz Andrea.wav (voz de Andrea)
+2. RuidoAmbiente.wav (ruido de fondo)
+3. Voz Paola.wav (voz de Paola)
+
+Se normalizan dividiéndolas por su máximo valor absoluto y se recortan a la misma longitud para que puedan ser analizadas juntas.
+luego se crea una matriz de mezcla, ¨mezcla = np.vstack((voz_andrea, ruido, voz_paola)).T¨, donde cada fila representa un instante de tiempo y cada columna es una señal, es decir, cada muestra en el tiempo contiene tres valores: la voz de Andrea, el ruido y la voz de Paola.
+se aplica el PCA, 
+¨pca = PCA(n_components=3)
+separadas = pca.fit_transform(mezcla)¨
+
+Donde, Se usa la función PCA de sklearn.decomposition para encontrar tres componentes principales.
+fit_transform(mezcla) calcula las componentes principales y proyecta la mezcla en un nuevo espacio de coordenadas donde las señales están separadas y como el PCA no tiene información previa sobre qué señal corresponde a cada fuente, el código identifica las componentes usando correlación con las señales originales:
+ ¨correlaciones_paola = [np.corrcoef(separadas[:, i], voz_paola)[0, 1] for i in range(3)]
+indice_paola = np.argmax(np.abs(correlaciones_paola))¨
+
+Se calcula la correlación entre cada componente PCA y la voz original de Paola y se elige el índice de la componente con mayor correlación y lo mismo se hace para andrea, después de identificar las señales de voz separadas, se les aplica un filtro pasa banda para mejorar su calidad, es decir, se usa un filtro pasa banda Butterworth para conservar las frecuencias entre 300 Hz y 3400 Hz, que corresponden al rango de voz humana, por último se calcula el snr antes y después de la  separación, esto se evidencia en la imagen 14.
+
+
 
 Imagen 14; SNR antes y después del filtrado método (PCA);
 
