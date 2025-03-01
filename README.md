@@ -221,6 +221,7 @@ Imagen 13; SNR antes y después del filtrado método (ICA)
 
 
 AGREGA AQUIIIIIIIIIIIIIII LA IMAGEN DEL OTRO SNRRRRR
+<img width="571" alt="Captura de pantalla 2025-03-01 a la(s) 11 58 24 a m" src="https://github.com/user-attachments/assets/419f2104-f557-41d8-9b86-90efa1d62b52" />
 
 
 
