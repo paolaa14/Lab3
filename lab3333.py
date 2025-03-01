@@ -47,8 +47,8 @@ voz_paola = voz_paola[:min_length]
 # Calcular SNR antes de la separación
 snr_voz_andrea = calculate_snr(voz_andrea, ruido)
 snr_voz_paola = calculate_snr(voz_paola, ruido)
-print(f'SNR antes del filtrado - Voz Andrea: {snr_voz_andrea:.2f} dB')
-print(f'SNR antes del filtrado - Voz Paola: {snr_voz_paola:.2f} dB')
+print(f'SNR antes de la separacion - Voz Andrea: {snr_voz_andrea:.2f} dB')
+print(f'SNR antes de la separacion - Voz Paola: {snr_voz_paola:.2f} dB')
 
 # Graficar las tres señales juntas en el dominio del tiempo
 plt.figure(figsize=(10, 4))
@@ -89,8 +89,8 @@ voz_paola_filtrada = apply_filter(senales_ordenadas[:, componentes.index('Voz Pa
 # Calcular SNR después del filtrado
 snr_voz_andrea_filtrada = calculate_snr(voz_andrea_filtrada, ruido)
 snr_voz_paola_filtrada = calculate_snr(voz_paola_filtrada, ruido)
-print(f'SNR después del filtrado - Voz Andrea: {snr_voz_andrea_filtrada:.2f} dB')
-print(f'SNR después del filtrado - Voz Paola: {snr_voz_paola_filtrada:.2f} dB')
+print(f'SNR después de la separacion - Voz Andrea: {snr_voz_andrea_filtrada:.2f} dB')
+print(f'SNR después de la separacion - Voz Paola: {snr_voz_paola_filtrada:.2f} dB')
 
 # Graficar todas las señales separadas y sus espectros
 for i in range(3):
