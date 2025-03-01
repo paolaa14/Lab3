@@ -13,7 +13,7 @@ Imagen 1. Organizacion microfonos;
 
 ![WhatsApp Image 2025-02-27 at 20 49 38](https://github.com/user-attachments/assets/e4d0c5e3-a3f4-42c0-b970-86eeedc8014b)
 
-En cuanto a las coordenadas, de estos dos microfonos, se evidencia en la imagen 1, que el primer microfono esta abajo a la izquierda, y el otro en la parte superior derecha, la distancia diagonal entre los dos es de 2.9 m , esta medida se tomó con un metro virtual que posee el disposito iphone, y para ser más precisos, el micrfono 1, que es el de abajo tiene una distancia de 1.5 m desde el centro de la sala hasta donde está, y el microfono 2, tiene una distancia de 1.8 m desde el centro de la sala.
+En cuanto a las coordenadas, de estos dos microfonos, se evidencia en la imagen 1, que el primer microfono esta abajo a la izquierda, y el otro en la parte superior derecha, la distancia diagonal entre los dos es de 3.3 m , esta medida se tomó con un metro virtual que posee el disposito iphone, y para ser más precisos, el micrfono 1, que es el de abajo tiene una distancia de 1.5 m desde el centro de la sala hasta donde está, y el microfono 2, tiene una distancia de 1.8 m desde el centro de la sala.
 
 
 Para continuar, se ubicaron dos personas en posiciones fijas dentro de la sala insonorizada (una en cada extremo). Es importante mencionar que estaban localizados a distancias diferentes y orientados en distintas direcciones para simular un entorno de "fiesta de cóctel".
