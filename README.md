@@ -25,3 +25,15 @@ Es importante destacar, que como se evidencia en la imagen 1, los microfonos imp
 
 2.1.Se generó la señal mediante la voz de los dos sujetos de prueba; cada uno dijo  una frase diferente durante el tiempo de captura de la señal (aproximadamente 15 segundos). Las señales de los micrófonos deben ser registradas por el sistema de adquisición y guardas para ser analizadas, lo que se evidencia en la imagen 2.
 
+imagen 2; señales voz y ruido en el dominio del tiempo
+
+
+<img width="624" alt="Figure 2025-02-27 201341 (0)" src="https://github.com/user-attachments/assets/76ce681d-3fb2-4b10-9c40-a171a967fe9a" />
+
+
+
+En la imagen 2, se observa la señal de voz de Paola junto con las señales de Andrea y el ruido en el dominio del tiempo. Se aprecia una superposición entre las señales, lo que sugiere que la separación de fuentes es necesaria para extraer la voz de interés.
+
+
+
+
